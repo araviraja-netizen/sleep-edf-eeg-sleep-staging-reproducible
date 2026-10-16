@@ -1,0 +1,199 @@
+{
+  "successful": true,
+  "validated_at": "2026-10-16T15:29:55.569527+05:30",
+  "stage": "Phase 7 finalization after explicit author/content-category approval",
+  "core_tests": {
+    "successful": true,
+    "tests_discovered": 221,
+    "passed": 176,
+    "failures": 0,
+    "errors": 0,
+    "additional_inputs_required": 45,
+    "elapsed_seconds": 15.467152666999937,
+    "raw_data_read": false,
+    "full_training_called": false,
+    "historical_test_source_unchanged": true
+  },
+  "full_reviewer_verification": {
+    "successful": true,
+    "numeric_checks": 654,
+    "models": 9,
+    "target_epochs_per_checkpoint": 31156,
+    "scope_requested": "full",
+    "subject_bootstrap_verified": true,
+    "frozen_split_verified": true,
+    "independent_subject_clusters": 12,
+    "bootstrap_resamples": 10000,
+    "bootstrap_weights_sha256": "ea7c14aaf875b2726b506fa713cce9735097031942899ebed24875c23af4c356",
+    "dataset_download_required": false,
+    "pytorch_required": false,
+    "training_called": false,
+    "inference_called": false,
+    "privacy_review_required": true,
+    "coverage": [
+      "accuracy",
+      "five-class macro-F1",
+      "all class precision/recall/F1",
+      "balanced accuracy",
+      "kappa",
+      "count and normalized confusion matrices",
+      "all fixed seeds and sample SD",
+      "transition/stable outcomes",
+      "paired subject-bootstrap intervals",
+      "frozen split integrity"
+    ],
+    "unavailable": [
+      "ROC/PR/AP/Brier/ECE require approved probabilities",
+      "EEG/hypnograms/embeddings/saliency/attention require excluded artifacts"
+    ]
+  },
+  "reduced_reviewer_verification_without_restricted_files": {
+    "successful": true,
+    "numeric_checks": 162,
+    "models": 9,
+    "target_epochs_per_checkpoint": 31156,
+    "scope_requested": "auto",
+    "subject_bootstrap_verified": false,
+    "frozen_split_verified": false,
+    "independent_subject_clusters": null,
+    "bootstrap_resamples": null,
+    "bootstrap_weights_sha256": null,
+    "dataset_download_required": false,
+    "pytorch_required": false,
+    "training_called": false,
+    "inference_called": false,
+    "privacy_review_required": true,
+    "coverage": [
+      "accuracy",
+      "five-class macro-F1",
+      "all class precision/recall/F1",
+      "balanced accuracy",
+      "kappa",
+      "count and normalized confusion matrices",
+      "all fixed seeds and sample SD",
+      "transition/stable outcomes"
+    ],
+    "unavailable": [
+      "ROC/PR/AP/Brier/ECE require approved probabilities",
+      "EEG/hypnograms/embeddings/saliency/attention require excluded artifacts",
+      "Subject-paired confidence intervals are reported historical results, not independently reconstructed in this scope",
+      "Exact frozen allocation and night grouping cannot be verified without approved split manifests"
+    ]
+  },
+  "notebook": {
+    "successful": true,
+    "executed_code_cells": 3,
+    "image_outputs": 1,
+    "error_outputs": 0,
+    "training_called": false,
+    "inference_called": false,
+    "raw_data_read": false,
+    "python_version": "3.11.17",
+    "kernel_cleanup": true
+  },
+  "synthetic_smoke": {
+    "successful": true,
+    "synthetic_only": true,
+    "real_data_read": false,
+    "real_test_inference_called": false,
+    "cnn_parameters": 40501,
+    "completed_epochs": 1,
+    "training_samples": 10,
+    "validation_samples": 10,
+    "checkpoint_roles_verified": [
+      "latest",
+      "best",
+      "previous"
+    ],
+    "resume_repeated_no_steps": true,
+    "advanced_models": [
+      {
+        "key": "m5_ce_s42",
+        "parameters": 65717,
+        "finite_forward_backward": true
+      },
+      {
+        "key": "m6_ce_s42",
+        "parameters": 57589,
+        "finite_forward_backward": true
+      },
+      {
+        "key": "m7_ce_s42",
+        "parameters": 107893,
+        "finite_forward_backward": true
+      },
+      {
+        "key": "m8_ce_s42",
+        "parameters": 44629,
+        "finite_forward_backward": true
+      },
+      {
+        "key": "m8_ablation_no_multiscale_s42",
+        "parameters": 31861,
+        "finite_forward_backward": true
+      },
+      {
+        "key": "m8_ablation_no_context_s42",
+        "parameters": 19413,
+        "finite_forward_backward": true
+      }
+    ]
+  },
+  "security": {
+    "text_files_scanned": 255,
+    "suspected_secret_findings": 0,
+    "legacy_absolute_path_occurrences": 52,
+    "machine_paths_in_portable_instructions": 0,
+    "unapproved_physiological_assets_found": false,
+    "selected_media_files": 20,
+    "no_file_at_or_above_100000000_bytes": true,
+    "limitations": "Automated patterns and manual scope/type review cannot prove absence of every possible secret or certify data rights."
+  },
+  "local_links": {
+    "local_links_verified": 221,
+    "issues": [],
+    "template_note": "Unrendered .md.in/*_template.md/*_body.md generator resources are source templates, not claimed rendered-document links."
+  },
+  "scientific_files_byte_identical": 116,
+  "python_files_parsed": 127,
+  "cli_help_checks": 8,
+  "isolated_copy": {
+    "successful": true,
+    "arbitrary_directory_with_spaces": true,
+    "full_numeric_checks": 654,
+    "reduced_numeric_checks": 162,
+    "scientific_module_imports": 59,
+    "restricted_evidence_removed_in_reduced_copy": true,
+    "raw_data_read": false,
+    "git_clone_not_performed": true
+  },
+  "preservation": {
+    "successful": true,
+    "files_checked": 8623,
+    "research_artifact_changes": [],
+    "os_metadata_changes": [],
+    "processed_arrays": 153
+  },
+  "citation_validation": {
+    "successful": true,
+    "cff_schema_version": "1.2.0",
+    "schema_url": "https://raw.githubusercontent.com/citation-file-format/citation-file-format/main/schema.json",
+    "schema_sha256": "17bc7993c67b95eec988dadca78b65cb29cd489d1fceba71040a141dfb9791df",
+    "genuine_author": "Ravi Raja Akurathi",
+    "copyright_year": 2026,
+    "code_license": "MIT",
+    "repository_url_omitted_until_publication": true,
+    "date_released_omitted_until_release": true,
+    "orcid_and_affiliation_not_supplied": true,
+    "validated_at": "2026-10-16T15:24:36.293091+05:30"
+  },
+  "author_and_license_decisions_pending": false,
+  "subject_count_and_split_release_approved": true,
+  "final_inventory_approval_pending": true,
+  "actual_git_clone_pending": true,
+  "full_raw_mps_reproduction_run": false,
+  "staged_files": 0,
+  "commits_created": 0,
+  "public_remote_created": false,
+  "pushed": false
+}

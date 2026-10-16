@@ -1,0 +1,21 @@
+# Reviewer risk checklist
+
+The manuscript is prepared for scientific review, with the following foreseeable criticisms explicitly disclosed.
+
+| Priority | Likely criticism | Existing response | Evidence still absent |
+|---|---|---|---|
+| High | M1 has one seed; M5/M7 have three | Report all seeds; undefined M1 seed SD; conditional subject intervals | Balanced baseline training-seed replication with independent confirmation |
+| High | Architecture effect is confounded with context | State that M1 sees one epoch while context models access neighboring EEG | Matched-context/capacity experimental controls |
+| High | Only {{test_subjects}} final subjects and one split | Subject-cluster bootstrap, support counts and cohort limitations | Independent cohort and alternative-split evidence |
+| High | Holdout may be reused for development | Final plan/checkpoint hashes fixed before inference; test now consumed | Any future development requires new evaluation data |
+| High | Algorithmic novelty is limited | Explicitly frame a reproducibility/comparison contribution | New-method evidence; not required for the present narrower claim |
+| Medium | Paired intervals condition on the fitted seeds | Separate subject intervals from seed sample SD | Joint uncertainty over new training/split/cohort realizations |
+| Medium | Offline eligibility and future EEG limit deployment | Detail label-based Wake trimming, zero-phase filter and future context | Prospective causal/streaming evaluation |
+| Medium | N1/boundary performance remains weak | Report class P/R/F1, all errors and transition subsets | Scorer-consensus labels or causal error diagnosis |
+| Medium | Timing is hardware/cache/epoch-count confounded | Distinguish measured wall times from analytic MACs and parameter bytes | Controlled latency, energy and peak-memory study |
+| Medium | Flagged subsets are not artifact ground truth | Retain all flags; avoid artifact-robustness claims | Expert relabeling or controlled perturbation study |
+| Medium | M8 ablations are short and change capacity | Keep M8 validation-only/exploratory and exclude from final roster | Converged multi-seed factorial and capacity-matched controls |
+| Medium | Explanations/projections can be overinterpreted | Reuse labeled validation examples; independent PCA/t-SNE axes | Causal physiological interpretation, which is not claimed |
+| Administrative | Data/code availability and author declarations incomplete | Provide local reproducibility files and public dataset citation | Public code/archive URL, author details, funding/conflict/ethics statements |
+
+Before submission, authors should review all claims and complete administrative details. No reviewer concern is addressed by silently tuning on the used test set or removing unfavorable outcomes. A journal requiring a novel algorithm may judge this comparison contribution insufficient; the package does not assume acceptance or invent a target journal’s policy.

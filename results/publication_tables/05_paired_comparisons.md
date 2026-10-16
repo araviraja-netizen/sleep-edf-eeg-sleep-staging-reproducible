@@ -1,0 +1,34 @@
+| primary_macro_f1_comparison | a | b | metric | estimate | lower95 | upper95 | lower_simultaneous | upper_simultaneous |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| False | M5_fixed_seeds | M1_fixed_seeds | accuracy | 0.0453 | 0.0359 | 0.0551 | — | — |
+| True | M5_fixed_seeds | M1_fixed_seeds | macro_f1 | 0.0574 | 0.0475 | 0.0693 | 0.0455 | 0.0718 |
+| False | M5_fixed_seeds | M1_fixed_seeds | n1_f1 | 0.0788 | 0.0488 | 0.1191 | — | — |
+| False | M5_fixed_seeds | M1_fixed_seeds | n3_f1 | 0.0472 | 0.0182 | 0.0795 | — | — |
+| False | M5_fixed_seeds | M1_fixed_seeds | balanced_accuracy | 0.0645 | 0.0560 | 0.0779 | — | — |
+| False | M5_fixed_seeds | M1_fixed_seeds | cohen_kappa | 0.0635 | 0.0513 | 0.0770 | — | — |
+| False | M7_fixed_seeds | M1_fixed_seeds | accuracy | 0.0430 | 0.0341 | 0.0521 | — | — |
+| True | M7_fixed_seeds | M1_fixed_seeds | macro_f1 | 0.0560 | 0.0451 | 0.0685 | 0.0427 | 0.0712 |
+| False | M7_fixed_seeds | M1_fixed_seeds | n1_f1 | 0.0930 | 0.0634 | 0.1284 | — | — |
+| False | M7_fixed_seeds | M1_fixed_seeds | n3_f1 | 0.0416 | 0.0044 | 0.0798 | — | — |
+| False | M7_fixed_seeds | M1_fixed_seeds | balanced_accuracy | 0.0576 | 0.0458 | 0.0724 | — | — |
+| False | M7_fixed_seeds | M1_fixed_seeds | cohen_kappa | 0.0597 | 0.0477 | 0.0725 | — | — |
+| False | M7_fixed_seeds | M5_fixed_seeds | accuracy | -0.0023 | -0.0079 | 0.0020 | — | — |
+| True | M7_fixed_seeds | M5_fixed_seeds | macro_f1 | -0.0013 | -0.0078 | 0.0039 | -0.0091 | 0.0049 |
+| False | M7_fixed_seeds | M5_fixed_seeds | n1_f1 | 0.0141 | -0.0053 | 0.0304 | — | — |
+| False | M7_fixed_seeds | M5_fixed_seeds | n3_f1 | -0.0056 | -0.0174 | 0.0041 | — | — |
+| False | M7_fixed_seeds | M5_fixed_seeds | balanced_accuracy | -0.0070 | -0.0140 | -0.0009 | — | — |
+| False | M7_fixed_seeds | M5_fixed_seeds | cohen_kappa | -0.0038 | -0.0115 | 0.0025 | — | — |
+| False | M4 | M1 | accuracy | -0.0054 | -0.0251 | 0.0089 | — | — |
+| False | M4 | M1 | macro_f1 | 0.0182 | -0.0016 | 0.0366 | — | — |
+| False | M4 | M1 | n1_f1 | 0.0853 | 0.0387 | 0.1178 | — | — |
+| False | M4 | M1 | n3_f1 | 0.0045 | -0.0517 | 0.0680 | — | — |
+| False | M4 | M1 | balanced_accuracy | 0.0624 | 0.0456 | 0.0799 | — | — |
+| False | M4 | M1 | cohen_kappa | 0.0024 | -0.0210 | 0.0203 | — | — |
+| False | m5_wce_s42 | m5_ce_s42 | accuracy | -0.0056 | -0.0149 | 0.0035 | — | — |
+| False | m5_wce_s42 | m5_ce_s42 | macro_f1 | 0.0079 | -0.0036 | 0.0200 | — | — |
+| False | m5_wce_s42 | m5_ce_s42 | n1_f1 | 0.0478 | 0.0022 | 0.0934 | — | — |
+| False | m5_wce_s42 | m5_ce_s42 | n3_f1 | -0.0059 | -0.0274 | 0.0125 | — | — |
+| False | m5_wce_s42 | m5_ce_s42 | balanced_accuracy | 0.0222 | 0.0126 | 0.0325 | — | — |
+| False | m5_wce_s42 | m5_ce_s42 | cohen_kappa | -0.0039 | -0.0159 | 0.0089 | — | — |
+
+Differences a−b. 95% subject-paired intervals; simultaneous intervals apply only to the three primary macro-F1 comparisons, not the exploratory secondary metrics.

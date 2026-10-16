@@ -1,0 +1,44 @@
+version: phase2-v1
+dataset: Sleep-EDF Expanded
+study: SC
+dataset_root: ${DATASET_ROOT}
+project_root: ${WORKSPACE}
+python_executable: ${PYTHON}
+processed_root: data/processed/phase2
+channel: EEG Fpz-Cz
+sampling_frequency_hz: 100
+epoch_seconds: 30
+samples_per_epoch: 3000
+storage_dtype: float32
+storage_units: microvolts
+filter:
+  design: butterworth
+  prototype_order: 4
+  low_hz: 0.3
+  high_hz: 35.0
+  representation: sos
+  method: sosfiltfilt
+  padtype: odd
+  padlen_samples: 27
+  boundary_flag_seconds: 30
+quality:
+  nonfinite_raw: reject_recording
+  nonfinite_filtered: reject_recording
+  constant_raw_epoch: reject_epoch
+  adc_rail_contacts: flag_only
+  amplitude_threshold_microvolts: null
+normalization:
+  method: global_zscore
+  fit_split: train
+  per_protocol: true
+  ddof: 0
+  apply: dataset_loader
+  batch_epochs: 128
+split:
+  seed: 42
+  train_subjects: 54
+  validation_subjects: 12
+  test_subjects: 12
+  algorithm: numpy_default_rng_permutation_of_sorted_subject_ids
+read_chunk_seconds: 600
+pilot_recordings: [SC4001E, SC4002E]

@@ -1,0 +1,61 @@
+version: phase3b-bounded-v1
+baseline_run_id: cnn1d-a-seed42-20261014-1800
+device: mps
+protocol: A
+precision: float32
+batch_size: 16
+num_workers: 0
+max_open_recordings: 128
+selection_metric: validation_macro_f1
+seed: 42
+repeat_seeds: [42, 43, 44]
+pilot:
+  training_samples: 8192
+  validation_samples: 4096
+  max_epochs: 3
+  selection_seed: 42
+  max_optimizer_trials: 6
+  max_loss_trials: 2
+  max_total_trials: 8
+  subset_path: results/phase3b_pilot_subsets.json
+  description: uniform without replacement, frozen IDs, no label balancing or flag exclusion
+optimizer_candidates:
+  - id: adamw_3e-4
+    optimizer: {name: AdamW, learning_rate: 0.0003, weight_decay: 0.01}
+  - id: adamw_1e-3
+    optimizer: {name: AdamW, learning_rate: 0.001, weight_decay: 0.01}
+  - id: adam_3e-4
+    optimizer: {name: Adam, learning_rate: 0.0003, weight_decay: 0.01}
+  - id: adam_1e-3
+    optimizer: {name: Adam, learning_rate: 0.001, weight_decay: 0.01}
+  - id: sgd_1e-2
+    optimizer: {name: SGD, learning_rate: 0.01, momentum: 0.9, dampening: 0, nesterov: false, weight_decay: 0.01}
+  - id: sgd_5e-2
+    optimizer: {name: SGD, learning_rate: 0.05, momentum: 0.9, dampening: 0, nesterov: false, weight_decay: 0.01}
+loss_candidates:
+  - {name: weighted_cross_entropy}
+  - {name: focal, gamma: 2.0}
+optional_comparisons_not_run:
+  RMSprop:
+    learning_rates: [0.0003, 0.001]
+    alpha: 0.99
+    eps: 0.00000001
+    momentum: 0.9
+    centered: false
+    weight_decay: 0.01
+  class_balanced_focal: {name: class_balanced_focal, gamma: 2.0, beta: 0.9999}
+  focal_gamma_search: [1.0, 2.0]
+full_run_proposal:
+  max_epochs: 25
+  early_stopping: {patience: 8, min_delta: 0.0}
+  scheduler: {name: none}
+  shortlist_optimizer_count: 2
+  auto_launch: false
+analysis:
+  penultimate_layer: embedding
+  intermediate_layers: [{name: blocks.2.2, pooling: mean_last}]
+  max_feature_dimension: 512
+  tsne_max_samples: 200
+  tsne_perplexity: 20
+  tsne_iterations: 300
+  seed: 42

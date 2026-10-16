@@ -1,0 +1,17 @@
+# Cover letter draft
+
+Dear Editor,
+
+Please consider our manuscript, “A Reproducible Subject-Independent Comparison of Compact CNN, CNN–BiLSTM and CNN–Transformer Models for Single-Channel Sleep Staging,” as a research comparison/reproducibility study.
+
+We compare established compact model families on PhysioNet Sleep-EDF Expanded using a frozen subject-independent split, fixed preprocessing and validation-only checkpoint selection. All {{selected_checkpoints}} preselected final checkpoints evaluate the identical {{test_epochs}} epochs. Subject-aware paired bootstrap intervals are reported separately from training-seed variability. The contextual models improve aggregate macro-F1 relative to the preserved CNN reference, while the direct contextual-model interval does not establish a reliable advantage. N1 and transition results qualify the aggregate findings.
+
+The manuscript’s contribution is its controlled protocol, explicit epoch/checkpoint lineage and reproducible analysis package. It does not claim architectural novelty, state-of-the-art performance or clinical effectiveness. We disclose the baseline’s single seed, the contextual models’ three seeds, a small final subject cohort and the difference in available temporal context. All historical results remain preserved, and the already-used test set is closed to further development.
+
+The package includes publication figures, complete individual-seed tables, verified references and a reproducibility checklist. We believe the work may be useful to readers interested in trustworthy single-channel EEG model comparisons and practical research infrastructure.
+
+Sincerely,
+
+[Corresponding author name, affiliation and contact details — to be supplied by the authors]
+
+**Complete before submission:** Select the journal and article category; supply author/contributor details; confirm all authors approve; verify originality, prior-publication and concurrent-submission declarations; complete funding, competing-interest and applicable ethics/data-reuse statements; provide the intended public code/archive URL. These declarations have not been invented or confirmed by the manuscript-preparation process. No submission has been sent.

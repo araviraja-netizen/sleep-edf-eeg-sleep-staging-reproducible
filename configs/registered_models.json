@@ -1,0 +1,2108 @@
+{
+  "configurations": {
+    "m5_ce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "cnn_lstm",
+      "model_id": "M5",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M5",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m5_ce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "cnn_lstm",
+      "model_id": "M5",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M5",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m5_ce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "cnn_lstm",
+      "model_id": "M5",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M5",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m5_wce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "cnn_lstm",
+      "model_id": "M5",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M5",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m5_wce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "cnn_lstm",
+      "model_id": "M5",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M5",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m5_wce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "cnn_lstm",
+      "model_id": "M5",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M5",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m6_ce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M6",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M6",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m6_ce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M6",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M6",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m6_ce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M6",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M6",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m6_wce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M6",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M6",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m6_wce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M6",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M6",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m6_wce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M6",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M6",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m7_ce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "transformer",
+      "model_id": "M7",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M7",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m7_ce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "transformer",
+      "model_id": "M7",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M7",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m7_ce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "transformer",
+      "model_id": "M7",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M7",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m7_wce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "transformer",
+      "model_id": "M7",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M7",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m7_wce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "transformer",
+      "model_id": "M7",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M7",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m7_wce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "transformer",
+      "model_id": "M7",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M7",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_ce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_ce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_ce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_wce_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_wce_s43": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 43,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_wce_s44": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 25,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "full",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 44,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        0.6123384237289429,
+        1.7581087350845337,
+        0.5624664425849915,
+        2.8821113109588623,
+        1.4852852821350098
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": null
+    },
+    "m8_ablation_control_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 3,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "ablation",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": "control"
+    },
+    "m8_ablation_no_multiscale_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 3,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "ablation",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": false,
+        "context": true
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": "no_multiscale"
+    },
+    "m8_ablation_no_context_s42": {
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "max_epochs": 3,
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "selection_metric": "validation_macro_f1",
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "version": "phase4-v1",
+      "phase": "4",
+      "stage": "ablation",
+      "synthetic": false,
+      "family": "attention",
+      "model_id": "M8",
+      "seed": 42,
+      "architecture": {
+        "name": "AdvancedSleepModel",
+        "model_id": "M8",
+        "window": 5,
+        "multiscale": true,
+        "context": false
+      },
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "batch_size": 16,
+      "progress_batches": 1000,
+      "track_training_metrics": true,
+      "training_class_counts": [
+        43782,
+        15249,
+        47664,
+        9302,
+        18050
+      ],
+      "loss_alpha": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "context_protocol": "contiguous Protocol A neighbors; masked zero padding; center target; future EEG offline",
+      "analysis": {
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "ablation": "no_context"
+    },
+    "M1": {
+      "version": "phase3c-v1",
+      "synthetic": false,
+      "family": "cnn",
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "seed": 42,
+      "max_epochs": 25,
+      "batch_size": 16,
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "track_training_metrics": true,
+      "progress_batches": 1000,
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "selection_metric": "validation_macro_f1",
+      "architecture": {
+        "name": "CNN1D",
+        "channels": [
+          16,
+          32,
+          64,
+          64
+        ],
+        "kernels": [
+          25,
+          9,
+          7,
+          5
+        ],
+        "strides": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "groups": 4,
+        "dropout": 0.3,
+        "classes": 5
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "analysis": {
+        "penultimate_layer": "embedding",
+        "intermediate_layers": [
+          {
+            "name": "blocks.2.2",
+            "pooling": "mean_last"
+          }
+        ],
+        "max_feature_dimension": 512,
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "explanations": {
+        "max_samples": 5,
+        "conv_layer": "blocks.3.0"
+      },
+      "phase": "3C",
+      "stage": "full",
+      "model_id": "M1",
+      "baseline_run_id": "cnn1d-a-seed42-20261014-1800"
+    },
+    "M2": {
+      "version": "phase3c-v1",
+      "synthetic": false,
+      "family": "cnn",
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "seed": 42,
+      "max_epochs": 25,
+      "batch_size": 16,
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "track_training_metrics": true,
+      "progress_batches": 1000,
+      "loss": {
+        "name": "cross_entropy"
+      },
+      "selection_metric": "validation_macro_f1",
+      "architecture": {
+        "name": "CNN1D",
+        "channels": [
+          16,
+          32,
+          64,
+          64
+        ],
+        "kernels": [
+          25,
+          9,
+          7,
+          5
+        ],
+        "strides": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "groups": 4,
+        "dropout": 0.3,
+        "classes": 5
+      },
+      "optimizer": {
+        "name": "Adam",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "analysis": {
+        "penultimate_layer": "embedding",
+        "intermediate_layers": [
+          {
+            "name": "blocks.2.2",
+            "pooling": "mean_last"
+          }
+        ],
+        "max_feature_dimension": 512,
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "explanations": {
+        "max_samples": 5,
+        "conv_layer": "blocks.3.0"
+      },
+      "phase": "3C",
+      "stage": "full",
+      "model_id": "M2",
+      "baseline_run_id": "cnn1d-a-seed42-20261014-1800"
+    },
+    "M4": {
+      "version": "phase3d-v1",
+      "synthetic": false,
+      "family": "cnn",
+      "protocol": "A",
+      "device": "mps",
+      "precision": "float32",
+      "seed": 42,
+      "max_epochs": 25,
+      "batch_size": 16,
+      "num_workers": 0,
+      "max_open_recordings": 128,
+      "track_training_metrics": true,
+      "progress_batches": 1000,
+      "loss": {
+        "name": "weighted_cross_entropy"
+      },
+      "selection_metric": "validation_macro_f1",
+      "architecture": {
+        "name": "CNN1D",
+        "channels": [
+          16,
+          32,
+          64,
+          64
+        ],
+        "kernels": [
+          25,
+          9,
+          7,
+          5
+        ],
+        "strides": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "groups": 4,
+        "dropout": 0.3,
+        "classes": 5
+      },
+      "optimizer": {
+        "name": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "scheduler": {
+        "name": "none"
+      },
+      "early_stopping": {
+        "patience": 8,
+        "min_delta": 0.0
+      },
+      "analysis": {
+        "penultimate_layer": "embedding",
+        "intermediate_layers": [
+          {
+            "name": "blocks.2.2",
+            "pooling": "mean_last"
+          }
+        ],
+        "max_feature_dimension": 512,
+        "tsne_max_samples": 500,
+        "tsne_perplexity": 30,
+        "tsne_iterations": 500,
+        "seed": 42
+      },
+      "explanations": {
+        "max_samples": 5,
+        "conv_layer": "blocks.3.0"
+      },
+      "phase": "3D",
+      "stage": "full",
+      "model_id": "M4",
+      "baseline_run_id": "cnn1d-a-seed42-20261014-1800"
+    }
+  },
+  "historical_advanced_active_keys": [
+    "m5_ce_s42",
+    "m5_wce_s42",
+    "m6_ce_s42",
+    "m6_wce_s42",
+    "m7_ce_s42",
+    "m7_wce_s42",
+    "m8_ce_s42",
+    "m8_wce_s42",
+    "m5_ce_s43",
+    "m5_ce_s44",
+    "m7_ce_s43",
+    "m7_ce_s44",
+    "m8_ablation_control_s42",
+    "m8_ablation_no_multiscale_s42",
+    "m8_ablation_no_context_s42"
+  ],
+  "historical_shortlist": [
+    "m5_ce_s42",
+    "m7_ce_s42"
+  ],
+  "note": "Exact historical hyperparameters. New reproduction runs receive new IDs/fingerprints; no old signed envelope is relabeled."
+}

@@ -1,0 +1,12 @@
+Prepare reproducible Sleep-EDF research source and verified publication evidence
+
+Expose the actual Phases 1–6 models, preprocessing, objectives, checkpoint/resume,
+evaluation and analysis code. Add portable reproduction entry points and independent
+count-based verification of fixed-seed metrics and paired subject uncertainty.
+
+Preserve the original research archive. Exclude EEG arrays, checkpoint bytes,
+epoch-level predictions, embeddings, credentials, environments and caches.
+Retain scientific limitations, input/capacity/seed differences and transition tradeoffs.
+
+PROPOSAL ONLY: no staging or commit has been performed. Author, citation, code
+license and derived-count/split release approvals must precede publication.

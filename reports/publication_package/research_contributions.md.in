@@ -1,0 +1,15 @@
+# Scientific contributions and supported claim boundaries
+
+| Contribution or claim | Evidence and status | Appropriate wording |
+|---|---|---|
+| Reproducible compact-model comparison | Shared data/normalization/subjects; exact nine-checkpoint plan; saved predictions and hashes | A preserved, subject-independent comparison under one offline protocol |
+| Context-aware performance | CNN baseline macro-F1 {{test_M1_macro_f1}}; CNN–BiLSTM mean {{test_M5_macro_f1}}; CNN–Transformer mean {{test_M7_macro_f1}} | Context variants improved aggregate holdout scores in this cohort; temporal input and architecture are confounded |
+| M5 versus M7 | M7−M5 difference {{M7_minus_M5_delta}}, 95% interval [{{M7_minus_M5_low}}, {{M7_minus_M5_high}}] | Reliable superiority between these families is not established |
+| Uncertainty reporting | {{bootstrap_draws}} paired subject-cluster draws; fixed-seed metric averaging; separate sample SD | Subject uncertainty conditional on fitted seeds, with small-cohort limitations |
+| N1/class-imbalance tradeoffs | All class supports and secondary weighted-loss results retained | Descriptive evidence of class tradeoffs, not a universally better loss |
+| Temporal-boundary findings | Transition macro-F1 {{M1_transition_f1}} / {{M5_transition_f1}} / {{M7_transition_f1}} for CNN/BiLSTM/Transformer | Aggregate improvement coexists with poorer defined transition-target scores |
+| Practical compactness | Exact parameter counts, partial analytic MACs and recorded wall times | A hardware-specific parameter/cost comparison; no energy or deployment-efficiency optimum |
+| M8 multiscale/gating novelty | Known components, one full-budget seed and bounded capacity-confounded ablations; no test evaluation | Exploratory validation-only design; novelty and module efficacy unresolved |
+| New architecture, SOTA, clinical effectiveness | Not established | Do not claim |
+
+Future claims about causal module efficacy, matched-context architectural advantages, population transfer or new hyperparameter development require additional controlled experiments and independent evaluation data. The final holdout has already been consumed. This phase starts none of those experiments.

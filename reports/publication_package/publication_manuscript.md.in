@@ -1,0 +1,282 @@
+# A Reproducible Subject-Independent Comparison of Compact CNN, CNN–BiLSTM and CNN–Transformer Models for Single-Channel Sleep Staging
+
+Author names, affiliations and corresponding-author details must be completed by the authors before submission. This neutral journal-style manuscript reports completed experiments; no journal-specific requirements or declarations of author approval are assumed.
+
+## Abstract
+
+{{include:abstract_body.md}}
+
+**Keywords:** automatic sleep staging; Sleep-EDF Expanded; single-channel EEG; CNN–BiLSTM; CNN–Transformer; subject-independent evaluation; reproducible research; paired subject bootstrap.
+
+## 1. Introduction and research motivation
+
+Automatic sleep staging assigns physiological recordings to discrete stages over successive scoring intervals. A useful experimental comparison must preserve the relationship between each EEG epoch, its annotation and the subject from whom it was acquired. Repeated nights and neighboring epochs are dependent observations, so random epoch allocation can obscure generalization to previously unseen subjects. Evaluation choices also change the relative abundance of Wake and sleep stages. These issues motivate a comparison whose eligibility rules and split assignments remain fixed throughout development and final evaluation.
+
+Sleep-EDF Expanded provides public polysomnographic recordings with expert stage annotations [R1–R3]. This study uses its Sleep Cassette cohort and a single Fpz-Cz EEG channel. The research question is whether compact contextual models provide useful performance under one explicitly defined offline protocol, relative to an epoch-level CNN. It is not whether the present architectures constitute new model families or achieve state-of-the-art performance.
+
+N1 merits separate attention because pooled accuracy can conceal errors in a minority class. Independent scorer-reliability research also documents difficulty with N1 [R11]. That literature motivates stage-specific reporting but does not identify the causes of errors in this dataset, whose annotation procedure differs from modern AASM scoring.
+
+## 2. Objectives and study contributions
+
+The objectives were to compare fixed CNN, CNN–BiLSTM and CNN–Transformer configurations; examine predefined weighted-loss references; quantify seed variability separately from subject uncertainty; and preserve all experimental evidence. The study contributes a reproducible comparison, explicit context-boundary handling and a saved-artifact audit, rather than an asserted new architecture.
+
+All final models predict the same original central epochs. Neighbor labels are excluded from inputs, and original indices, recording identities and validity masks remain linked to predictions. Final checkpoint selection precedes test inference. A secondary contribution is documenting class and transition tradeoffs that would be obscured by reporting only the largest test score. The analysis retains every predefined seed; it does not nominate a new test-winning seed.
+
+## 3. Related literature and research gap
+
+DeepSleepNet established raw single-channel convolutional feature extraction with bidirectional temporal recurrence [R4]. SeqSleepNet models sequences hierarchically and produces sequence-level labels [R5]. AttnSleep combines multiresolution feature extraction, recalibration and attention-based temporal modeling [R6]. SleepTransformer applies Transformer modeling with interpretation and uncertainty outputs [R7]. These precedents mean convolution, recurrence, attention and multi-epoch context cannot be presented here as individually novel techniques.
+
+Efficient modeling is also an established objective: TinySleepNet emphasizes a smaller raw-EEG model and training strategy [R8], while DeepSleepNet-Lite studies a simplified contextual model with uncertainty estimates [R9]. U-Sleep addresses a substantially broader setting through heterogeneous cohorts and EEG/EOG inputs [R10]. Those studies motivate examining efficiency and transfer, but they do not provide a protocol-matched numerical leaderboard for the present experiment.
+
+The specific gap addressed here is an auditable, compact-model comparison under one unchanged cohort, channel, subject split and epoch manifest, with all completed seeds and subject-aware uncertainty retained. We do not claim that this focused literature review proves absence of similar comparisons elsewhere. Published results are not ranked numerically against ours: dataset subsets, Wake treatment, scoring conventions, channels, pretraining, cross-validation and subject allocation differ. The models below are compact research implementations, not reproductions of the named published systems.
+
+## 4. Dataset, annotations and quality audit
+
+The local inventory contained {{SC_recordings}} paired Sleep Cassette recordings from {{SC_subjects}} subjects. Sleep Telemetry contained {{ST_recordings}} recordings from {{ST_subjects}} subjects and was inventoried separately; it was not used to train, select or finally evaluate these models. Both Fpz-Cz and Pz-Oz were available in the inventory, but only Fpz-Cz was used. Dataset provenance and the original collection are cited separately from the current PhysioNet platform [R1–R3].
+
+Labels were fixed as Wake=0, N1=1, N2=2, N3=3 and REM=4, with original stages 3 and 4 merged into N3. Movement and unknown annotations received no supervised label. SC exclusions included {{SC_movement_epochs}} movement epochs and {{SC_unknown_epochs}} unknown epochs. The audit recorded {{SC_missing_epochs}} missing complete epochs, {{SC_overlap_epochs}} overlapping epochs and {{SC_invalid_timing_epochs}} invalid-timing epochs in SC. These separate quantities should not be conflated with annotation overhang or excluded labels.
+
+Epochs are half-open intervals `[30k, 30(k+1))` from PSG start. Eligibility requires a verified common time origin, exact sample-grid boundaries and unique complete annotation coverage. No timestamp shift, interpolation or invented beyond-signal epoch was permitted. A documented recording had a supervised annotation extending beyond its signal; only supported in-signal epochs were retained. The historical inventory and exception records remain available for this case rather than silently repairing the annotation.
+
+Raw and filtered signals were checked for nonfinite values, and exact constant raw epochs were subject to rejection. ADC rail contacts and recording-edge proximity were retained as flags rather than converted into new amplitude exclusions. The final test population contains {{flagged_test}} flagged epochs. Such flags describe numerical properties; they neither certify artifact-free EEG nor provide expert artifact diagnoses.
+
+## 5. EEG preprocessing and Wake eligibility
+
+Fpz-Cz was used at its native 100 Hz rate. Calibrated EEG was expressed in microvolts and filtered as a continuous recording before extraction of 3,000-sample epochs. The saved filter was a fourth-order Butterworth prototype with passband specifications 0.3–35 Hz, implemented as `butter(4, [0.3,35], fs=100, btype="bandpass", output="sos")` followed by `sosfiltfilt` in float64 with odd padding of 27 samples. Band-pass transformation gives eighth-order one-pass filtering; forward/backward application squares the amplitude response and gives an effective order of 16. Cutoff gain is approximately −6.02 dB after the two passes. Acquisition filtering and residual boundary effects remain limitations; padding is not exported as physiological samples.
+
+Protocol B retains all valid supervised epochs. Primary Protocol A retains up to 60 original epochs before the first and after the last valid sleep epoch, together with all eligible epochs between them, including internal Wake. This is a 30-minute margin on each side. Original gaps remain gaps. Protocol B contains {{full_epochs}} valid epochs; A contains {{protocol_A_epochs}}, removing {{wake_removed}} exterior Wake epochs. Wake prevalence changes from {{wake_full_pct}}% to {{wake_A_pct}}%. Non-Wake counts do not change.
+
+Filtered, unnormalized float32 epochs were stored once in memory-mappable arrays. Protocol A normalization was fitted only on training samples, using a global population mean of {{norm_mean}} µV and standard deviation of {{norm_std}} µV, with `ddof=0`. The same fixed parameters were applied on loading to validation and test epochs:
+
+$$x'_{k,n}=(x_{k,n}-\mu_{\mathrm{train}})/\sigma_{\mathrm{train}}.$$
+
+Label-based trimming uses information unavailable to an autonomous sleep-boundary detector. Together with noncausal filtering and future EEG context, it defines an offline research evaluation, not a demonstrated streaming system.
+
+**Table 1. Dataset allocation.**
+
+{{table:01_dataset_split}}
+
+![Figure 1. Full-valid and Wake-trimmed stage distribution](../results/publication_figures/02_stage_distribution.png)
+
+*Figure 1.* All SC subjects combined for descriptive eligibility counts. These distributions did not alter the frozen allocation or class weights.
+
+![Figure 2. Preprocessing illustration and saved filter response](../results/publication_figures/03_preprocessing.png)
+
+*Figure 2.* The historical training-only raw/filtered illustration is reused as a labeled raster; the response is redrawn analytically from saved SOS coefficients. No new raw EDF read or preprocessing was needed.
+
+## 6. Architecture details and mathematical formulations
+
+### 6.1. Shared epoch encoder and CNN baseline
+
+The encoder has four bias-free Conv1d blocks with channel widths `(16,32,64,64)`, kernels `(25,9,7,5)` and strides `(2,2,2,1)`, using half-kernel padding. Each block applies GroupNorm with four groups, ReLU and MaxPool1d of width two. Adaptive temporal average pooling produces a 64-dimensional epoch feature `z_k=E(x'_k)`. The baseline M1 applies dropout 0.3 and a linear `64→5` classifier. M1 contains {{parameters_M1}} trainable parameters. M4 has the identical architecture but uses weighted training loss.
+
+The encoder in the context models has the same convolution/pooling construction with its classifier removed. Each run starts from fresh seeded weights; contextual runs do not fine-tune the trained M1 checkpoint. GroupNorm does not accumulate running batch statistics. Its temporal normalization and global pooling mean that local convolutional receptive-field calculations alone do not describe the entire epoch's effective support.
+
+### 6.2. Boundary-safe context
+
+For original index `k`, the contextual input contains valid neighbors from `k−2` through `k+2`. A neighbor must share subject, recording, night and split; all intervening original indices must be eligible and contiguous. Lookup stops at the first gap in either direction. Missing neighbors are zero-filled after normalization and accompanied by an explicit binary mask `m_t`. The central epoch is always present. Masks and original context IDs are preserved with the predictions. Neither neighbor annotations nor predicted stage sequences are inputs.
+
+The packed implementation tensor has five slots, each containing 3,000 EEG samples and a separate final mask scalar. This scalar is unpacked before convolution and is not an additional EEG sample. The nominal contextual window covers five epochs, including up to 60 seconds of future EEG after the central epoch; gaps may shorten available context. No recurrent state persists across windows or recordings.
+
+### 6.3. CNN–BiLSTM, M5
+
+Separate forward and backward LSTM cells have hidden width 32 per direction. For the relevant traversal, candidate states follow the standard gated recurrence:
+
+$$[i_t,f_t,o_t,g_t]=[\sigma,\sigma,\sigma,\tanh](W[z_t;h_{t-1}]+b),$$
+$$\widetilde c_t=f_t\odot c_{t-1}+i_t\odot g_t,\qquad \widetilde h_t=o_t\odot\tanh(\widetilde c_t).$$
+
+Masking retains the previous hidden and cell states whenever the current slot is missing. The forward and backward hidden states at the central position are concatenated, normalized by LayerNorm and passed through dropout 0.3 and a linear five-class head. M5 contains {{parameters_M5}} parameters.
+
+### 6.4. CNN–Transformer, M7
+
+Five learned 64-dimensional position vectors are added to the masked EEG tokens. Two context blocks each use four-head self-attention with head width 16, residual connections and LayerNorm, followed by a `64→128→64` feed-forward network with GELU and dropout 0.1. Attention-weight dropout is also 0.1. With missing keys assigned negative-infinite attention logits,
+
+$$A=\operatorname{softmax}(QK^\top/\sqrt{16}+M),\qquad \operatorname{Attn}(Q,K,V)=AV.$$
+
+Each block uses post-residual normalization; padded token outputs are zeroed after the block. Only the central output is classified after final LayerNorm, dropout 0.3 and the `64→5` head. M7 contains {{parameters_M7}} parameters. This is a compact raw-EEG contextual implementation, not a reproduction of SleepTransformer [R7].
+
+![Figure 3. Implemented architecture overview](../results/publication_figures/01_architectures.png)
+
+*Figure 3.* EEG encoding and central-target heads. The baseline differs from context models in both architecture and accessible temporal input; the experiment cannot isolate architecture alone.
+
+## 7. Experimental setup, optimization and losses
+
+The primary comparison uses AdamW with learning rate 0.001, weight decay 0.01, betas `(0.9,0.999)` and epsilon `1e-8`. Batch size is 16, precision float32, maximum training budget 25 epochs, early-stopping patience eight, and no learning-rate scheduler. Best-epoch selection uses strictly highest complete-validation five-class macro-F1. There is no test-based checkpoint update or threshold tuning.
+
+Ordinary cross-entropy is the primary loss. Weighted CE references use training-only counts `(43782,15249,47664,9302,18050)` in the fixed class order and weights
+
+$$w_c=N_{\mathrm{train}}/(5n_c),\qquad L_{\mathrm{WCE}}=\frac{\sum_j w_{y_j}[-\log p_{j,y_j}]}{\sum_j w_{y_j}}.$$
+
+No validation/test label determines a loss weight. Ordinary validation CE is retained separately from objective-specific weighted loss. Earlier bounded optimizer and focal-loss pilots are historical development evidence rather than additional final comparators. Adam and AdamW have different coupled versus decoupled regularization semantics [R12], so matching a numeric weight-decay setting would not isolate identical regularization across optimizers.
+
+Experiments ran on an Apple M4 MacBook Air with 16 GB unified memory, PyTorch MPS and external SSD storage. Existing read-only memory maps, bounded loaders and the established checkpoint manager were reused. Every completed epoch saved optimizer, RNG, sampler, early-stop and history states. Interrupted epochs repeat from a recoverable committed checkpoint. This preserves resumability without promising bitwise-identical MPS results across software or hardware.
+
+## 8. Subject-independent evaluation and validation selection
+
+The frozen allocation used subject seed 42, with all nights of a subject assigned together. Training used {{train_epochs}} epochs from {{train_subjects}} subjects; validation used {{validation_epochs}} epochs from {{validation_subjects}} subjects. Final evaluation used {{test_epochs}} epochs from {{test_subjects}} subjects and {{test_recordings}} recordings. There is no subject or recording overlap between splits.
+
+The initial advanced-model campaign compared architecture/loss configurations using validation results. Its sealed seed-42 ranking shortlisted ordinary-CE M5 and M7, which were then repeated at seeds 43 and 44. The original M1 seed 42 was preserved rather than retrained. Validation macro-F1 means were {{validation_M1_macro}} for M1, {{validation_M5_macro}} for M5 and {{validation_M7_macro}} for M7. The shortlist and best epochs therefore use validation selection and should not be mistaken for unbiased validation estimates.
+
+Before test predictions, the final plan fixed {{selected_checkpoints}} checkpoints: M1 seed 42; M5 and M7 ordinary CE at seeds 42, 43 and 44; M4 seed 42; and weighted M5 seed 42. M4 and weighted M5 are secondary class-imbalance comparisons. The exact model configurations, checkpoint hashes, data/software fingerprints and central prediction rule are recorded in the immutable plan and [checkpoint table](../results/publication_tables/09_all_nine_checkpoints.md). M8 was not included in the final test roster. Explicit local Terminal authorization followed plan review and freezing.
+
+No ensemble was evaluated, and no single seed is now promoted on the basis of its test result. The frozen test has been used. Any further model development or eligibility changes require independent new evaluation data.
+
+## 9. Metrics and subject-aware statistical analysis
+
+Primary macro-F1 is the arithmetic mean of class F1 over all five classes: `F1_c=2TP_c/(2TP_c+FP_c+FN_c)` and `macro-F1=(1/5)∑_c F1_c`. Accuracy uses every retained central target; single-label multiclass micro-F1 equals accuracy. Weighted F1 weights classes by true support. Balanced accuracy averages recall over classes present in ground truth. Cohen's kappa is `(accuracy−p_e)/(1−p_e)`, where `p_e` is chance agreement from the empirical true/predicted marginals. Specificity is `TN/(TN+FP)`. Class precision, recall, F1 and one-vs-rest specificity are reported with support. Undefined class precision/recall/F1 is zero; an absent class remains in five-class macro-F1. Undefined specificity, kappa, ROC AUC or average precision is null rather than invented.
+
+One-vs-rest ROC/PR, multiclass Brier score and top-label calibration results were retained in final artifacts. Brier score is mean summed squared error over the five probabilities. ECE uses ten equal-width confidence bins, weighted by each bin's target count, with the final bin including probability one. No temperature, calibration transform or threshold was fitted to the test set.
+
+Subject uncertainty uses the predefined paired cluster bootstrap with {{bootstrap_draws}} draws and RNG seed 20261016. Each draw samples the test subjects with replacement; every selected subject contributes all of its epochs and nights with multiplicity. Identical draws are reused across models and seeds. Metrics are calculated from pooled weighted confusion counts. For M5/M7, model-level estimates average the metrics from the three fixed fitted seeds, not their probabilities. Differences are paired within each draw.
+
+We report 95% percentile intervals and approximate Bonferroni 98.333% marginal intervals for the three predeclared primary macro-F1 comparisons. Other stage/subset analyses remain descriptive. Undefined kappa replicates are excluded with valid-replicate counts recorded. The bootstrap conditions on these fitted seeds and one frozen split; it does not quantify uncertainty from new training, alternative split selection, scorer variation or population shift. Only {{test_subjects}} independent test subjects are available, limiting interval coverage and precision. Training-seed sample SD uses `ddof=1` and is reported separately; it is undefined for a single seed.
+
+## 10. Final frozen-test performance
+
+**Table 2. Primary final-test results.**
+
+{{table:03a_primary_display}}
+
+The baseline achieved macro-F1 {{test_M1_macro_f1}}. Fixed-seed means were {{test_M5_macro_f1}} for CNN–BiLSTM and {{test_M7_macro_f1}} for CNN–Transformer. Their respective accuracy values were {{test_M1_accuracy_percent}}%, {{test_M5_accuracy_percent}}% and {{test_M7_accuracy_percent}}%. All individual-seed scores are retained in the [nine-run table](../results/publication_tables/10_all_seed_test_metrics.md); the model-level mean is not the best seed and is not an ensemble score.
+
+M5-minus-M1 macro-F1 was {{M5_minus_M1_delta}}, with 95% subject-paired interval [{{M5_minus_M1_low}}, {{M5_minus_M1_high}}]. M7-minus-M1 was {{M7_minus_M1_delta}}, interval [{{M7_minus_M1_low}}, {{M7_minus_M1_high}}]. The corresponding approximate multiplicity-adjusted intervals also lie above zero: [{{M5_minus_M1_sim_low}}, {{M5_minus_M1_sim_high}}] and [{{M7_minus_M1_sim_low}}, {{M7_minus_M1_sim_high}}]. These observations support differences on this fixed holdout, conditional on the trained models; they do not prove clinical effectiveness or isolate architecture from temporal context.
+
+The M7-minus-M5 difference was {{M7_minus_M5_delta}}, with 95% interval [{{M7_minus_M5_low}}, {{M7_minus_M5_high}}] and adjusted interval [{{M7_minus_M5_sim_low}}, {{M7_minus_M5_sim_high}}]. Both contain zero. The reported uncertainty does not establish a reliable performance advantage between these context families. M1's single seed prevents a matched three-seed architecture-level variability comparison.
+
+![Figure 4. Primary comparisons and seed variation](../results/publication_figures/04_primary_comparison.png)
+
+*Figure 4.* Subject uncertainty and seed variation are shown in separate panels.
+
+![Figure 5. Paired macro-F1 differences](../results/publication_figures/07_paired_intervals.png)
+
+*Figure 5.* Dark intervals are 95%; pale intervals are 98.333% for the primary comparison family. The M7-versus-M5 contrast crosses zero.
+
+## 11. Class-wise and subject-wise findings
+
+**Table 3. Primary class results.**
+
+{{table:04a_classwise_display}}
+
+N1 F1 was {{test_M1_n1_f1}} for M1, {{test_M5_n1_f1}} for M5 and {{test_M7_n1_f1}} for M7. N1 has {{N1_test_support}} true test epochs per checkpoint. Precision and recall must be examined separately: improving N1 recall may increase false N1 assignments, and high Wake/N2 performance does not establish adequate N1 recognition. N3 F1 means were {{test_M1_n3_f1}}, {{test_M5_n3_f1}} and {{test_M7_n3_f1}}, respectively.
+
+The confusion matrices use seed 42 by a fixed illustrative convention, not because that seed performed best. Model-level class scores average all predefined seeds; an averaged confusion matrix would not generally yield the same averaged F1. Subject-wise plots include every held-out subject in identifier order. Their equal-subject descriptions differ from the primary metric, which pools epochs before computing F1 within each seed. Subject results include class supports so that missing-class conventions remain visible.
+
+![Figure 6. Raw and row-normalized confusion matrices](../results/publication_figures/05_confusion_matrices.png)
+
+*Figure 6.* Seed-42 examples; each raw matrix covers the identical final target population.
+
+![Figure 7. Fixed-seed class precision, recall and F1](../results/publication_figures/06_classwise.png)
+
+*Figure 7.* Per-class score means. The complete class-wise table also retains specificity, AUC and AP.
+
+![Figure 8. N1 prediction distribution](../results/publication_figures/10_N1_errors.png)
+
+*Figure 8.* Predicted class conditional on true N1. The N1 column is recall and all other columns are error fractions.
+
+![Figure 9. Subject-wise primary results](../results/publication_figures/15_subjectwise.png)
+
+*Figure 9.* Fixed-seed mean F1 for each subject; subjects are not independent epoch replicates and are not ranked to select examples.
+
+## 12. Secondary weighted-loss comparisons
+
+M4's final macro-F1 was {{M4_macro_f1}} and N1 F1 {{M4_n1_f1}}, compared with M1's {{test_M1_macro_f1}} and {{test_M1_n1_f1}}. The macro-F1 difference was {{M4_macro_f1_delta}}, with descriptive 95% interval [{{M4_macro_f1_low}}, {{M4_macro_f1_high}}]. Weighted M5 seed 42 achieved macro-F1 {{m5_wce_s42_macro_f1}} and N1 F1 {{m5_wce_s42_n1_f1}}, compared with ordinary-CE M5 seed 42 values {{m5_ce_s42_F1}} and {{m5_ce_s42_N1}}. Its macro-F1 difference interval was [{{m5_wce_s42_macro_f1_low}}, {{m5_wce_s42_macro_f1_high}}].
+
+Both secondary aggregate intervals contain zero. N1 point estimates increase in these matched seed-42 references, but they do not justify promoting weighted loss to a new test-selected primary model. The comparisons have one seed per configuration, and stage-specific intervals are exploratory without an additional multiplicity guarantee. Validation and test directions also need not coincide; neither loss nor checkpoint was revised after observing these outcomes.
+
+## 13. Temporal boundaries, quality subsets and example hypnograms
+
+The transition definition compares each target with the immediately preceding consecutive original epoch within the same subject, recording and night. There are {{transition_epochs}} transition targets and {{stable_epochs}} stable targets; {{excluded_transition_boundary_epochs}} recording-start/gap targets do not enter either subset. Previous true labels are used only for this retrospective analysis, never for model inference.
+
+M1 transition macro-F1 was {{M1_transition_f1}}, compared with fixed-seed means {{M5_transition_f1}} for M5 and {{M7_transition_f1}} for M7. Stable-target means were {{M1_stable_f1}}, {{M5_stable_f1}} and {{M7_stable_f1}}, respectively. These descriptive results qualify the aggregate improvements: contextual models performed better on stable targets but lower on the defined transition subset. Temporal smoothing is a plausible interpretation, not an experimentally isolated cause or a newly optimized mechanism.
+
+Flagged versus flag-free metrics are retained unchanged in [the quality-subset table](../results/publication_tables/12_quality_subsets.md). The small flagged population is class-composition confounded, so favorable accuracy there cannot establish artifact robustness. No flag-based exclusion or threshold was introduced. The displayed hypnogram is the lexicographically first test recording, selected by identifier rather than by favorable performance, with original onset times and gaps preserved.
+
+![Figure 10. Transition versus stable targets](../results/publication_figures/16_transition_errors.png)
+
+*Figure 10.* Fixed-seed descriptive subset means; no independent subset tuning or superiority test was conducted.
+
+![Figure 11. Example hypnograms](../results/publication_figures/11_hypnograms.png)
+
+*Figure 11.* Same recording and seed-42 illustrative checkpoints for all models; no time-axis compression across invalid gaps.
+
+## 14. Computational complexity and parameter efficiency
+
+M1 has {{parameters_M1}} parameters, M5 {{parameters_M5}} and M7 {{parameters_M7}}. The analytic partial forward MAC counts per central target are approximately {{M1_MAC_millions}}, {{M5_MAC_millions}} and {{M7_MAC_millions}} million. Contextual counts include re-encoding five epochs for every target, matching the implemented overlapping-window inference rather than an assumed embedding-cache optimization. Counts omit normalization, activations, pooling, softmax, bias additions and elementwise recurrent operations, so they are not complete FLOP estimates.
+
+Mean measured training-attempt durations were {{M1_train_minutes}}, {{M5_train_minutes}} and {{M7_train_minutes}} minutes, while chunk inference/export over the entire test target set took {{M1_inference_seconds}}, {{M5_inference_seconds}} and {{M7_inference_seconds}} mean wall seconds. Training times include the realized early-stopping trajectories and differ in epoch counts; inference/export includes data access, checkpoint loading and disk work within chunks. Neither provides a controlled kernel-latency or energy measurement. Differences across separate executions may reflect thermal state, caches and system load. Serialized checkpoints include optimizer/RNG/metadata and exceed the theoretical float32 parameter storage.
+
+The parameter/cost table and plots describe a tradeoff rather than an efficiency optimum. CNN–BiLSTM uses fewer parameters than CNN–Transformer while producing a close fixed-seed mean macro-F1; the uncertainty does not establish that either architecture dominates on new populations.
+
+![Figure 12. Parameters and measured export cost](../results/publication_figures/09_parameter_cost.png)
+
+*Figure 12.* Saved fixed-seed mean test scores against parameter count and measured wall time. No deployment-energy claim follows from parameter count alone.
+
+## 15. Convergence and exploratory ablations
+
+Validation learning curves are shown for every predefined primary seed. Different realized best epochs and stopping times are part of the saved evidence, rather than reasons to select an epoch using test scores.
+
+![Figure 13. Training convergence](../results/publication_figures/08_training_convergence.png)
+
+*Figure 13.* Validation-only macro-F1; stars mark the checkpoint selected before final evaluation.
+
+Exploratory M8 combines multiscale convolution, center-query attention and gated central/context fusion. Its full-budget CE seed-42 validation macro-F1 was {{m8_ce_s42_macro}}. Fresh three-epoch control, no-multiscale and no-context runs scored {{m8_ablation_control_s42_macro}}, {{m8_ablation_no_multiscale_s42_macro}} and {{m8_ablation_no_context_s42_macro}}. Removing components also changes parameter capacity and computation, and a short one-seed trajectory cannot establish converged module efficacy. There is no gate-only or parameter-matched control. The full-budget result is not an equal-budget substitute for the bounded control.
+
+M8 remains exploratory and was never finally evaluated. Its familiar component combination does not establish architectural novelty. Proposed further validation campaigns were not executed here and must not now be used to iterate against the consumed test cohort. Reliable new model-development claims require new independent evaluation data and a separately registered design.
+
+## 16. Representations and explainability
+
+Saved 64-dimensional embeddings support PCA over all final targets and t-SNE over a uniformly sampled, seeded subset of 500 targets. The existing t-SNE analysis used seed 42, perplexity 30 and 500 iterations [R13]. These parameters were fixed before final reporting. Class, subject, recording, original epoch and checkpoint identities remain linked in the publication coordinate tables. Each model's projection has an independent coordinate system; visual distances cannot be compared as though axes were shared. Projected separation is descriptive, not evidence of causal features or a substitute for held-out classification metrics.
+
+Representative saliency, compatible one-dimensional Grad-CAM and attention plots reuse previously saved validation examples bound to the same selected checkpoints. The N1 illustration is the first saved validation example of that true class, chosen without test outcomes. Gradients target the predicted logit, and attention corresponds to the saved final Transformer block. Their scales and architectural meaning differ across models. No new gradient extraction, model inference or retraining was performed to construct this publication package.
+
+![Figure 14. Saved embedding visualizations](../results/publication_figures/12_embeddings.png)
+
+*Figure 14.* Seed-42 illustration. PCA and t-SNE are separate fits within each model, not a common latent space.
+
+![Figure 15. Validation saliency and Grad-CAM](../results/publication_figures/13_explanations.png)
+
+*Figure 15.* Checkpoint-linked validation N1 examples. Descriptive sensitivity maps do not identify causal sleep physiology.
+
+![Figure 16. Saved Transformer attention heads](../results/publication_figures/14_attention.png)
+
+*Figure 16.* Validation example, four heads. Masked-key handling and source epoch identities are retained in the original explanation artifact.
+
+## 17. Discussion in relation to prior research
+
+The principal finding is that the two contextual compact variants improved aggregate holdout macro-F1 relative to the preserved CNN baseline within this protocol. This agrees with the motivation for temporal modeling in established sleep-staging architectures [R4–R7], but the experiment does not isolate recurrence or attention as the cause: the context models access neighboring EEG that M1 does not. Their nearly overlapping model-level results and the interval for their direct difference argue against selecting a preferred family solely from the test point estimates.
+
+The weighted-loss references illustrate that rare-class and aggregate objectives need not move together, while transition analysis demonstrates that an overall improvement can coexist with poorer boundary-target scores. These are study-specific observations rather than general laws about weighting or context. Earlier N1 scorer-reliability findings [R11] and uncertainty-aware systems [R7,R9] motivate caution, not a claim that present model errors are equivalent to human disagreement.
+
+The study complements efficient and cross-cohort work [R8–R10] by preserving checkpoint and epoch lineage on commodity hardware. However, a small model and reproducible workflow do not by themselves establish an algorithmic novelty contribution. Protocol differences prevent direct performance ranking against those publications. No state-of-the-art, human-level or clinical-effectiveness assertion is made.
+
+## 18. Limitations and threats to validity
+
+The data represent one historical cohort and one frozen subject allocation. The final independent units are subjects, not the much larger number of epochs. Subject-bootstrap coverage may be unstable with a small cohort, especially for rare classes, and is conditional on the saved seeds and selected split. Scorer uncertainty is not directly measured. The class mapping merges original deep-sleep stages and does not recreate modern multi-scorer AASM labels.
+
+M1 has fewer seeds than M5/M7, preventing a fully balanced seed comparison. Validation-selected repeats may favor configurations that happened to perform well on that validation cohort. Architecture, parameter count, future context, repeated epoch encoding and realized training time are not separately randomized factors. The reported intervals cannot eliminate these design confounds.
+
+Label-informed eligibility, noncausal filtering and future EEG prevent a causal online interpretation. Quality flags are not expert artifact ground truth, and no external cohort or Sleep Telemetry performance was evaluated. Illustrative seed-42 confusion matrices and explanations are not representative population uncertainty summaries. Bootstrap intervals do not certify clinical effectiveness or guarantee generalization.
+
+Finally, the test cohort is consumed. Further architectural, optimizer, loss, threshold, ensemble or eligibility development cannot legitimately use it as an untouched confirmation set. New claims require independent data; repeated reporting from unchanged saved artifacts does not restore holdout independence.
+
+## 19. Reproducibility and data/code availability
+
+All previous experiment files, processed arrays, frozen manifests, checkpoints, predictions and embeddings are preserved. The machine-readable final plan binds data, model, source and software fingerprints. Permanent exports include all five logits/probabilities, exact epoch/recording/subject identifiers, quality flags and representations. History is checkpoint-authoritative. The publication tables were recalculated from saved outputs, and the subject-bootstrap weights and intervals reproduced the original registered analysis exactly.
+
+The publication package includes a source/claim number ledger, input/output checksums, figure captions and an independently readable reproducibility checklist. No model was retrained and no final inference was repeated. Source-file hashes provide revision evidence; the project did not have an existing Git commit. Data remain available through PhysioNet under its stated terms [R1]; a public project-code archive URL has not yet been supplied and must be completed before claiming public code availability. The manuscript uses no invented ethics approval, funding, author affiliation or submission declaration. Those administrative statements require author completion and institutional review of applicable requirements.
+
+## 20. Conclusion and future work
+
+Under the fixed offline subject-independent protocol, compact CNN–BiLSTM and CNN–Transformer models achieved higher aggregate final-test macro-F1 than the preserved CNN baseline. The direct contextual-model difference is not established as reliable by the reported interval. N1 errors, transition tradeoffs, unequal seed counts and a small single-cohort holdout remain material limitations.
+
+The scientific contribution is a transparent comparison and reproducibility package for established model families. Future studies could address matched context/capacity controls, balanced seed replication, independent-cohort evaluation, causal preprocessing and scorer uncertainty. Such work requires new evaluation data and is not initiated by this manuscript preparation.
+
+## 21. References
+
+Reference labels R1–R13 in the text map to the verified entries below. Full metadata provenance and DOI checks are in [verified_references.md](verified_references.md). Publication years distinguish final articles from earlier preprints.
+
+{{include:references_body.md}}
+
+## Supplementary publication artifacts
+
+The [table directory](../results/publication_tables/) contains full-precision CSVs and readable Markdown tables for all seeds, checkpoints, class scores, subject/recording results, quality/transition subsets, paired comparisons and computational cost. The [figure directory](../results/publication_figures/) contains 300-dpi PNGs, PDF counterparts and a complete [caption list](../results/publication_figures/captions.md). These new artifacts do not overwrite historical reports.

@@ -1,0 +1,12 @@
+{
+  "advanced_completed_runs": 15,
+  "advanced_recorded_training_seconds": 48691.280750959006,
+  "advanced_recorded_training_hours": 13.525355764155279,
+  "processed_eeg_array_bytes": 4979551584,
+  "raw_local_dataset_bytes": 8715229580,
+  "pretraining_full_budget_estimate_hours": [
+    18.6,
+    49.4
+  ],
+  "timing_scope": "Recorded training-attempt seconds; excludes preprocessing, exports, plotting, tests and unrecorded interruptions. This is not a future-run guarantee."
+}

@@ -1,0 +1,21 @@
+# Research integrity and reproducibility contract
+
+All comparisons use SC Protocol A, Fpz-Cz 100 Hz, five labels, original epoch identifiers and the frozen 54/12/12 subject split. Both nights of a subject stay together; neighboring epochs cannot leak across splits. The checksum-verified [split evidence](../evidence/splits/subject_split_freeze.json) remains independent of model outcomes.
+
+Wake eligibility is annotation-informed: up to 60 original epochs before first and after last valid sleep, with internal Wake retained. It defines offline scoring, not an autonomous sleep-boundary detector. Continuous zero-phase filtering and future context also preclude a causal online claim. Rejected annotation gaps keep original indices. Nonfinite/constant policies and retained numerical rail/edge flags are unchanged.
+
+Population normalization is fitted only on training samples, separately by protocol. Validation/test values do not set mean/std, class weights or thresholds. The public portable path invokes the actual Phase 2 fit once and verifies the saved result; it does not add a different normalization method.
+
+M1 sees one epoch. M5/M7 see up to five centered epochs, including future EEG, with explicit masks. Neighbors must match subject, recording, night and split and all intervening original indices must exist. No gap jumping, duplicate edge EEG, neighbor labels or state carry between windows is allowed. Model capacities and seed replication differ; task-level gains cannot be assigned exclusively to recurrence or attention.
+
+Development used validation macro-F1 for best-epoch selection and the advanced shortlist. M1 has seed 42 only; M5/M7 each retain 42, 43, 44. No best test seed is selected, no seed is discarded, and averaging metrics is not an ensemble. Validation means are selection/development results. Final-test results refer to the nine checkpoint identities registered before inference; they are distinct from validation performance and exploratory M8/M6 analyses.
+
+The registered uncertainty analysis resamples twelve subjects with replacement, retains all nights/epochs with multiplicity, pools confusion counts within each fitted seed, and averages fixed-seed metrics. Identical draws pair configurations. It uses 10,000 draws, seed 20261016, percentile 95% intervals and approximate Bonferroni 98.333% intervals for the three primary macro-F1 contrasts. Seed sample SD (`ddof=1`) is a separate variation source. M1's seed SD is undefined. The bootstrap conditions on fitted seeds and one split; it does not quantify joint retraining/cohort uncertainty. Twelve clusters limit reliability.
+
+The lightweight [independent verifier](../release_tools/verify.py) implements count formulas separately from the research statistics module and matches the original draw checksum and intervals. Pseudonymized cluster order is preserved. Counts support this calculation without per-epoch outcomes. They are not anonymous by guarantee; the author explicitly approved their inclusion in this release. Probability-dependent metrics, EEG examples and feature geometry are not reproducible from counts alone; see [availability](ARTIFACT_AVAILABILITY.md).
+
+Macro-F1 includes all five classes and sets undefined P/R/F1 to zero; balanced accuracy averages recall of present classes. Undefined kappa/specificity/AUC/AP is null. No significance, equivalence or clinical-effectiveness claim follows from reporting an interval or point estimate. M5/M7 score higher overall but lower on the fixed transition subset; no smoothing mechanism was experimentally isolated.
+
+The original test cohort has been used and is considered **consumed**. Recounting fixed saved predictions does not restore independence. Future architecture/loss/optimizer/threshold/ensemble/eligibility development needs independent evaluation data. The portable reproduction tools replay registered settings with new IDs; they are not permission to optimize against this holdout.
+
+M8's one-seed short ablations change capacity and computation; there is no converged, multi-seed, capacity-matched factorial or gate-only confirmation. M8 was not finally tested. Attention, saliency and projections are descriptive and do not establish causal physiology. The study makes no architecture-novelty, state-of-the-art, human-level or clinical-validity claim.

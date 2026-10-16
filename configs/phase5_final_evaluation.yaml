@@ -1,0 +1,1025 @@
+schema: 1
+protocol: A
+channel: EEG Fpz-Cz
+sampling_hz: 100
+classes:
+- Wake
+- N1
+- N2
+- N3
+- REM
+dataset_contract:
+  dataset: Sleep-EDF Expanded
+  study: SC
+  preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+  normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+  subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+  epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+  protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+  class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+  protocol_name: A
+  synthetic: false
+models:
+- key: M1
+  model_id: M1
+  role: primary
+  seed: 42
+  family: cnn
+  run_id: cnn1d-a-seed42-20261014-1800
+  checkpoint: experiments/cnn/cnn1d-a-seed42-20261014-1800/reproducibility/checkpoints/epoch-000008-0bdcb966fc53.pt
+  checkpoint_sha256: 36c092ac719ac2536687eac1858df597540cfeed9003e1d9b7c4df71c6c66e70
+  best_epoch_1_based: 9
+  parameters: 40501
+  configuration:
+    version: phase3-real-cnn-v1
+    synthetic: false
+    family: cnn
+    protocol: A
+    device: mps
+    precision: float32
+    seed: 42
+    max_epochs: 25
+    batch_size: 16
+    num_workers: 0
+    max_open_recordings: 128
+    track_training_metrics: true
+    progress_batches: 1000
+    loss: ordinary_cross_entropy
+    selection_metric: validation_macro_f1
+    architecture:
+      name: CNN1D
+      channels:
+      - 16
+      - 32
+      - 64
+      - 64
+      kernels:
+      - 25
+      - 9
+      - 7
+      - 5
+      strides:
+      - 2
+      - 2
+      - 2
+      - 1
+      groups: 4
+      dropout: 0.3
+      classes: 5
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+    scheduler:
+      name: none
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    analysis:
+      penultimate_layer: embedding
+      intermediate_layers:
+      - name: blocks.2.2
+        pooling: mean_last
+      max_feature_dimension: 512
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    explanations:
+      max_samples: 5
+      conv_layer: blocks.3.0
+  configuration_sha256: 269c5c30a62285dd101902bd7763bb24e504816b342442a0bbadcdac542c62f7
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: 1d8bc021ae78379cc0b13557c90d3f617611528cdf7f6a957e0c8b2ed7b375fd
+    training_configuration: 3c557c8df429cbdfb507fc43bc83b418ccbd4ffbb267bef1e255a5d9b0bc4618
+  validation_export: experiments/cnn/cnn1d-a-seed42-20261014-1800/performance/exports/validation-epoch000008-6ad9e935
+  validation_export_sha256: 285d831e80712fdb34b61344f23861f03f1605aa56d8aa38aaa82670451b1683
+  validation_explanations: experiments/cnn/cnn1d-a-seed42-20261014-1800/explanations/validation-epoch000008-6ad9e935
+  experiment_metadata_sha256: 32a8e8852676b3c65f7f9be42457c6e68fcf41bd4de2dbc39c2b688302d26fa0
+  training_seconds: 1527.5474989169998
+- key: m5_ce_s42
+  model_id: M5
+  role: primary
+  seed: 42
+  family: cnn_lstm
+  run_id: phase4-b78a2d24b621-m5_ce_s42
+  checkpoint: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s42/reproducibility/checkpoints/epoch-000005-9b3a9d173b11.pt
+  checkpoint_sha256: 884190a9a3e6a9ce430292f4f633506fc867040c39b05bb119790ff09ac1d4b3
+  best_epoch_1_based: 6
+  parameters: 65717
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: cnn_lstm
+    model_id: M5
+    seed: 42
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M5
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: 9a1f1ca272876f783b7f5730f9deb39913e81fd6ca3173bd5c7f24ba961dd9f7
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: cd6eac816b4763807dcc59ddf92c4cef7af711f6798a9d276f617b686c8efad6
+    training_configuration: 748833839752d151e966775db72deb7387d2354c93c75284ee61dede6917e6ed
+    objective: efa68732f61ad035c28f77ac25cdcf139d567171294d5abf28c412c83792d7f6
+  validation_export: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s42/performance/exports/validation-epoch000005-ad0e7e19
+  validation_export_sha256: 9aa19b4a6a29935c05d3eeed8d9c942e33a304d3ce71a0da811cfcd01598fea0
+  validation_explanations: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s42/explanations/validation-epoch000005-ad0e7e19
+  experiment_metadata_sha256: 640d4f22902a5a62d015ef87606315c79406c32140eda066e2253dcf9aa550a9
+  training_seconds: 3577.128477124992
+- key: m5_ce_s43
+  model_id: M5
+  role: primary
+  seed: 43
+  family: cnn_lstm
+  run_id: phase4-b78a2d24b621-m5_ce_s43
+  checkpoint: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s43/reproducibility/checkpoints/epoch-000007-e2755206116c.pt
+  checkpoint_sha256: f0a52c3b04dd59a33849520628db2395c6ed411c8d80d3fc9b98e4b70e08ce16
+  best_epoch_1_based: 8
+  parameters: 65717
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: cnn_lstm
+    model_id: M5
+    seed: 43
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M5
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: 1a6108ae899f83cf98fdcbbf6c8adade7099b6efeff502a81a15f7a2791ecf52
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: cd6eac816b4763807dcc59ddf92c4cef7af711f6798a9d276f617b686c8efad6
+    training_configuration: bcba0d9657f71998a70475a0221e73c6119d03d003bd546b96fbea1390d6ea2f
+    objective: efa68732f61ad035c28f77ac25cdcf139d567171294d5abf28c412c83792d7f6
+  validation_export: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s43/performance/exports/validation-epoch000007-218615d8
+  validation_export_sha256: 45935a749d49d8f8b2092c8a8b07335aca64da49550e29547d4a1a2e61b00ca6
+  validation_explanations: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s43/explanations/validation-epoch000007-218615d8
+  experiment_metadata_sha256: 47f424f7bb858c19263f8bab64c97140026fa9bc9fdee888aa8b70509d6c1dc2
+  training_seconds: 3966.431672916995
+- key: m5_ce_s44
+  model_id: M5
+  role: primary
+  seed: 44
+  family: cnn_lstm
+  run_id: phase4-b78a2d24b621-m5_ce_s44
+  checkpoint: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s44/reproducibility/checkpoints/epoch-000007-df9346d23356.pt
+  checkpoint_sha256: cd939eac8e261f2cf2472818f6f7cb4973e882d51bf0c936342bbd75c310f0c7
+  best_epoch_1_based: 8
+  parameters: 65717
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: cnn_lstm
+    model_id: M5
+    seed: 44
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M5
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: 4a7351e19950db09658cb570f88bcfcf7ddf0de65d5d14ee105f7d0262d0ac27
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: cd6eac816b4763807dcc59ddf92c4cef7af711f6798a9d276f617b686c8efad6
+    training_configuration: cd8daccb310ba6b128620dc3d88b875f0c2017ca960929e2e339f1c96b79422c
+    objective: efa68732f61ad035c28f77ac25cdcf139d567171294d5abf28c412c83792d7f6
+  validation_export: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s44/performance/exports/validation-epoch000007-54770aca
+  validation_export_sha256: 2b8b2382d595391e764ed406eeebd7a201155b07ba3d9e1227066b63c29b6af9
+  validation_explanations: experiments/cnn_lstm/phase4-b78a2d24b621-m5_ce_s44/explanations/validation-epoch000007-54770aca
+  experiment_metadata_sha256: 8dc548476b5b75ef09884ef127d6d517bc3094a259b21ad40acf56f89e26f871
+  training_seconds: 3964.136214665996
+- key: m7_ce_s42
+  model_id: M7
+  role: primary
+  seed: 42
+  family: transformer
+  run_id: phase4-b78a2d24b621-m7_ce_s42
+  checkpoint: experiments/transformer/phase4-b78a2d24b621-m7_ce_s42/reproducibility/checkpoints/epoch-000005-e2ab95da7694.pt
+  checkpoint_sha256: 122f803cfc803505e148a062937ef01e3e7df9730c64cb1a9a87ad0f05eb1cea
+  best_epoch_1_based: 6
+  parameters: 107893
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: transformer
+    model_id: M7
+    seed: 42
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M7
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: 9dec0fd8731ad4ac3578e3fffce00f7053654480451ac3a9e5815efa5bc5adaf
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: 96b149f77471ec93a46c48afd4f0007c53207178508bcc9ff167b0a02590f6c3
+    training_configuration: 445f42b1324f6db20bab42e6c791d2aadaf93ede8dee8c319d9fcb1b9434fee8
+    objective: efa68732f61ad035c28f77ac25cdcf139d567171294d5abf28c412c83792d7f6
+  validation_export: experiments/transformer/phase4-b78a2d24b621-m7_ce_s42/performance/exports/validation-epoch000005-fb680e60
+  validation_export_sha256: a729f9e79bc522e5b0b7fe50240cb34cb04788be8e30903e16029b8a10427ccf
+  validation_explanations: experiments/transformer/phase4-b78a2d24b621-m7_ce_s42/explanations/validation-epoch000005-fb680e60
+  experiment_metadata_sha256: c05f3011dbee65d2ae1f6bf0ff09ae2bab99e60ec56cfc6209ffa19a2112abb5
+  training_seconds: 3950.123186458004
+- key: m7_ce_s43
+  model_id: M7
+  role: primary
+  seed: 43
+  family: transformer
+  run_id: phase4-b78a2d24b621-m7_ce_s43
+  checkpoint: experiments/transformer/phase4-b78a2d24b621-m7_ce_s43/reproducibility/checkpoints/epoch-000009-b22c21e3fdce.pt
+  checkpoint_sha256: 55a706d011c92b92bdc6e87788fceb6bff151d7a438edb5bf33c27f2ed8b9c85
+  best_epoch_1_based: 10
+  parameters: 107893
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: transformer
+    model_id: M7
+    seed: 43
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M7
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: f7fc56839292b43ac9bbdde0db2ca867e27e88e9fb73e72bca628ee0328cb767
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: 96b149f77471ec93a46c48afd4f0007c53207178508bcc9ff167b0a02590f6c3
+    training_configuration: 085549a6ed92803645065bbf6867e20f2c12c25f673498d8aa6f5055f112c09a
+    objective: efa68732f61ad035c28f77ac25cdcf139d567171294d5abf28c412c83792d7f6
+  validation_export: experiments/transformer/phase4-b78a2d24b621-m7_ce_s43/performance/exports/validation-epoch000009-54d36f40
+  validation_export_sha256: 3a8b7d6661dae90134e9e1d7e6e10919a1c2f79210d758e5896b7a2a85eb0bf4
+  validation_explanations: experiments/transformer/phase4-b78a2d24b621-m7_ce_s43/explanations/validation-epoch000009-54d36f40
+  experiment_metadata_sha256: 1ce9ee33e3c13f2acd0e8a758a2be6ed1f98ac13cc39253d8b3c1f2f63aa9e1f
+  training_seconds: 4450.4230474170035
+- key: m7_ce_s44
+  model_id: M7
+  role: primary
+  seed: 44
+  family: transformer
+  run_id: phase4-b78a2d24b621-m7_ce_s44
+  checkpoint: experiments/transformer/phase4-b78a2d24b621-m7_ce_s44/reproducibility/checkpoints/epoch-000007-f3131d8b1b3d.pt
+  checkpoint_sha256: 70466b68c439b928aae74de7bcebaae4f506ced06ba01ce7320020a5c7a1a187
+  best_epoch_1_based: 8
+  parameters: 107893
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: transformer
+    model_id: M7
+    seed: 44
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M7
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    - 1.0
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: 25e87c7d37aeef7ac85f12bb49887bb9a1cea138974f3edb52c36c643a8c8b2c
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: 96b149f77471ec93a46c48afd4f0007c53207178508bcc9ff167b0a02590f6c3
+    training_configuration: 19ce0647f9f3742ce7a9e253a5bc930d158b9c43ef80c1634f9553ddfb094f56
+    objective: efa68732f61ad035c28f77ac25cdcf139d567171294d5abf28c412c83792d7f6
+  validation_export: experiments/transformer/phase4-b78a2d24b621-m7_ce_s44/performance/exports/validation-epoch000007-c4ebdb78
+  validation_export_sha256: 37b6381516fe039fc758982503ae82822e66e17590042cc354ef539f4afe6e65
+  validation_explanations: experiments/transformer/phase4-b78a2d24b621-m7_ce_s44/explanations/validation-epoch000007-c4ebdb78
+  experiment_metadata_sha256: 1017f7ddc07a2d64129d2441471742e3b965f797d863d0185a6f9741d7da98f8
+  training_seconds: 3935.435624791993
+- key: M4
+  model_id: M4
+  role: secondary
+  seed: 42
+  family: cnn
+  run_id: phase3d-m4-s42-7ffcd914
+  checkpoint: experiments/cnn/phase3d-m4-s42-7ffcd914/reproducibility/checkpoints/epoch-000007-a9b2f4f065c4.pt
+  checkpoint_sha256: b3a0f03fe9b96ebd6dce09c42f8bfdd33fa762b5c02b0314bd6423cbbc8a2d87
+  best_epoch_1_based: 8
+  parameters: 40501
+  configuration:
+    version: phase3d-v1
+    synthetic: false
+    family: cnn
+    protocol: A
+    device: mps
+    precision: float32
+    seed: 42
+    max_epochs: 25
+    batch_size: 16
+    num_workers: 0
+    max_open_recordings: 128
+    track_training_metrics: true
+    progress_batches: 1000
+    loss:
+      name: weighted_cross_entropy
+    selection_metric: validation_macro_f1
+    architecture:
+      name: CNN1D
+      channels:
+      - 16
+      - 32
+      - 64
+      - 64
+      kernels:
+      - 25
+      - 9
+      - 7
+      - 5
+      strides:
+      - 2
+      - 2
+      - 2
+      - 1
+      groups: 4
+      dropout: 0.3
+      classes: 5
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    analysis:
+      penultimate_layer: embedding
+      intermediate_layers:
+      - name: blocks.2.2
+        pooling: mean_last
+      max_feature_dimension: 512
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    explanations:
+      max_samples: 5
+      conv_layer: blocks.3.0
+    phase: 3D
+    stage: full
+    model_id: M4
+    baseline_run_id: cnn1d-a-seed42-20261014-1800
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 0.6123384237289429
+    - 1.7581087350845337
+    - 0.5624664425849915
+    - 2.8821113109588623
+    - 1.4852852821350098
+  configuration_sha256: 68ef1b1fc0faa656945a19b5c468ce677aa1371dafad956d86f6998e4c225028
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: 1d8bc021ae78379cc0b13557c90d3f617611528cdf7f6a957e0c8b2ed7b375fd
+    training_configuration: cfc393b9f02c00729f58e827f8c272cb353dc137b63e7556a3f400748f31ecae
+    objective: 796a475b40c67dd344c4eb294e48712a5d87e86352d30b99e7a659719023ec12
+  validation_export: experiments/cnn/phase3d-m4-s42-7ffcd914/performance/exports/validation-epoch000007-5f52a584
+  validation_export_sha256: eaccab7fdf02540b1863ff6b05a8bd912d4455c7eebf422cbc0f4740f992c3a9
+  validation_explanations: experiments/cnn/phase3d-m4-s42-7ffcd914/explanations/validation-epoch000007-5f52a584
+  experiment_metadata_sha256: c85bd5dd4a2795a73672d00291e3da0b2c59c27f7ef6b2cb875dfa1d9784cbd6
+  training_seconds: 1357.0305236249988
+- key: m5_wce_s42
+  model_id: M5
+  role: secondary
+  seed: 42
+  family: cnn_lstm
+  run_id: phase4-b78a2d24b621-m5_wce_s42
+  checkpoint: experiments/cnn_lstm/phase4-b78a2d24b621-m5_wce_s42/reproducibility/checkpoints/epoch-000007-e6819b1bd530.pt
+  checkpoint_sha256: e36abfacdb028086679150d4b208fb22ec60314e1a2280705b2031876ae5fa3c
+  best_epoch_1_based: 8
+  parameters: 65717
+  configuration:
+    protocol: A
+    device: mps
+    precision: float32
+    max_epochs: 25
+    early_stopping:
+      patience: 8
+      min_delta: 0.0
+    optimizer:
+      name: AdamW
+      learning_rate: 0.001
+      weight_decay: 0.01
+      betas:
+      - 0.9
+      - 0.999
+      eps: 1.0e-08
+    scheduler:
+      name: none
+    selection_metric: validation_macro_f1
+    num_workers: 0
+    max_open_recordings: 128
+    version: phase4-v1
+    phase: '4'
+    stage: full
+    synthetic: false
+    family: cnn_lstm
+    model_id: M5
+    seed: 42
+    architecture:
+      name: AdvancedSleepModel
+      model_id: M5
+      window: 5
+      multiscale: true
+      context: true
+    loss:
+      name: weighted_cross_entropy
+    batch_size: 16
+    progress_batches: 1000
+    track_training_metrics: true
+    training_class_counts:
+    - 43782
+    - 15249
+    - 47664
+    - 9302
+    - 18050
+    loss_alpha:
+    - 0.6123384237289429
+    - 1.7581087350845337
+    - 0.5624664425849915
+    - 2.8821113109588623
+    - 1.4852852821350098
+    context_protocol: contiguous Protocol A neighbors; masked zero padding; center
+      target; future EEG offline
+    analysis:
+      tsne_max_samples: 500
+      tsne_perplexity: 30
+      tsne_iterations: 500
+      seed: 42
+    ablation: null
+  configuration_sha256: dd1648ebe328b4d3fee4ecc7db7d212ca2fdf8f872f1c66f619019f6fcf0b9b7
+  resume_fingerprints:
+    preprocessing: ff0bf1ce053af203dc024cd9abb634ae5961cc516509d7ab9ac1a6b008ea3c7b
+    normalization: fd9caa47f98362af670c85350d2d3a1548eecf1eb73322f3cb7c664e046ce0d2
+    subject_split: 54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a
+    epoch_manifest: 38d27fe9e2eae0576f5a0d2af2fc450ff96f32e47c6841508dc104523943e5f1
+    protocol: 2ee61274734bfaac1a60dc0b271ceea24b5b9bf6d32119f2e58bb6b053ca2757
+    class_mapping: fe1df95af6d8d89a0e0203eb9e13b45f1c197fd2cb739f71f1efc77351e387e3
+    architecture: cd6eac816b4763807dcc59ddf92c4cef7af711f6798a9d276f617b686c8efad6
+    training_configuration: 81559b4e6a532f9073bddb648bd35a73c1a2e78f77ccd58429d833f2e2319a1d
+    objective: 796a475b40c67dd344c4eb294e48712a5d87e86352d30b99e7a659719023ec12
+  validation_export: experiments/cnn_lstm/phase4-b78a2d24b621-m5_wce_s42/performance/exports/validation-epoch000007-d524d4e6
+  validation_export_sha256: af45bf732e5ef22d7fe0da6433bf87693efab58f96cc044e011e8a836b251ab7
+  validation_explanations: experiments/cnn_lstm/phase4-b78a2d24b621-m5_wce_s42/explanations/validation-epoch000007-d524d4e6
+  experiment_metadata_sha256: 251000b7dcf86926e726b3860fb4e83297cd939ed7eeb6e6b06f8b1621f7c9cd
+  training_seconds: 4427.878579584009
+test_subjects:
+- SC408
+- SC412
+- SC413
+- SC414
+- SC419
+- SC435
+- SC436
+- SC448
+- SC454
+- SC465
+- SC466
+- SC467
+test_epochs: 31156
+test_recordings: 22
+test_epoch_ids_sha256: a6ca5efab42524923695f2ffa91f8fd78290ed3227a52640fb8219f91e0e22ea
+protocol_index_sha256: 18c182e32984dd00fd2976731ed78dda306463d98452acec32ecc63dd3e90353
+source_files:
+  src/models/__init__.py: 09a9a2784eea704bf1d2f01526203554e8cd953ab195e8e017f529f39769da0e
+  src/models/advanced_sleep.py: 2855b7a10522843b891fcb808dbba5fdaed6d8e13a9a38c3d35c6e9c259b06ee
+  src/models/cnn1d.py: 14d7b2c57efef2bef9ebc85f0f23af45ea0304c838f4c919caed6e64118a567a
+  src/sleep_edf/__init__.py: 3f5a578bc5d5fc29e1f45e5a5daaf2eeb1bdf4b8a8dc61f5e36812edf1806586
+  src/sleep_edf/__main__.py: 05881a24c15ec90080f67656d7a8d8fc69956982a3f02f32c53dcf60c7823be3
+  src/sleep_edf/annotations.py: 243d7805458a3ca13fe5c2f756f8109b5d071ee4e7301e12f2800adcfcc11107
+  src/sleep_edf/dataset.py: 64245a2dc12de5166636a97d005ba4e7e167647631c05d2c59b9219813187f3b
+  src/sleep_edf/discovery.py: 914f2e91b7fe001aa27a074a4870e7e633097f4997e81e3dfb7720b6febe664b
+  src/sleep_edf/edf.py: cab7726f122ca4b5f8cd8c6d34c98fa805dbf796ebb902f571cbb5fa220a0ba5
+  src/sleep_edf/inspection.py: ad7686d620f97156e3290686e7475e8c3e50381d8b7a8b7b5f57ec6c61e8564b
+  src/sleep_edf/normalization.py: 07d5a305ddf55ba064e6547e996743b19e0d225e9f1bd80fdbc012da78a36466
+  src/sleep_edf/phase2.py: 4a43737bd013646fc134a9e1072a5f84634e4a6ba43484a94f19a9dbae6d2b97
+  src/sleep_edf/phase2_plotting.py: 58eb45d1d7e0e47b2944990a7db84c6d1bde7a19fa9f9347452ce0abe35ce8b7
+  src/sleep_edf/phase2_utils.py: 3ec6aa098955659c2e595a11ead585b9dabc1f04e33717e0744508078726f6fb
+  src/sleep_edf/plotting.py: dab522834003a1dfb4ebe836137ce16e3fdbab9f8369b3608c53fb7354d9acd9
+  src/sleep_edf/preprocessing.py: 4ab042247521cb9e6f68195c0cba11b08e24a30c66b526435496e1441253b447
+  src/sleep_edf/splits.py: 196cea2b4e72fe74c66e3e8bb3946b31e8d2ed95f91802c7d2b9b9aa65cdae71
+  src/sleep_edf/trimming.py: 4b81516b5ce6bedb33e5168b80a268f7e84b3efe12ca3c2fbbcb018a47c46a20
+  src/sleep_research/__init__.py: c5a469e36ce6258fa8e2bd3f3bc50ddd405f9c17dde4f3c773b35b4b5598877d
+  src/sleep_research/analysis.py: 2905cef67628e22ab77cc1837344d69c1c578d9670c74c1ff99c10e53a7057f5
+  src/sleep_research/checkpoints.py: 3474cf7ece8dff6e92a2fca1da143bd8179866dd5f7bacf53ebdc3d7639fbb3f
+  src/sleep_research/cli.py: 6aa8fa3686e0c58f78ec1e6b7ecf6fc49840ac6803ecfe8b69d45174a1e3f1ed
+  src/sleep_research/cnn_baseline.py: 748db6e8245a74264b426b75b1a6865fe6b517ffa125d8d060d1155f070e3545
+  src/sleep_research/cnn_inference.py: c1cfa7ff25c8f8d20008210185cc7dffa9642a897f85acf7b1f73dbc0b05b5c8
+  src/sleep_research/common.py: 744b0d2eacc29b07339b074893a86afa7140887005057f9da2bc024647b613eb
+  src/sleep_research/experiments.py: 344e64dc4e1ca35f7581ca00c11b176bd73f8721cc788075a4900e58bcc55046
+  src/sleep_research/explanations.py: 5b3e22daf20a3fed3c948509a4031f8d7897c40ee723f6b96491b4e11cd696a0
+  src/sleep_research/inference.py: fb33d66b4ac19c198685896fe03e0706169ef5f1ee379219ebe50c9ffc546ce9
+  src/sleep_research/metrics.py: 3002ed56bed3c2f47b13d8fc3c4c4201720a16d0706dd68608061a6363e4b49a
+  src/sleep_research/objectives.py: 3099a2906e22a7ef2db546562a6125d4bc861bfeb2b081d4982543ab27c26f96
+  src/sleep_research/phase3_analysis.py: 78fd08821f701d53c8089028e3984731b7b91604fd7a4b7770bfb01c3e4191ea
+  src/sleep_research/phase3b.py: ad1b7d1596007879d75675e02646d716b176b48f83c7c7277ab69f95a55b3621
+  src/sleep_research/phase3b_analysis.py: 1b773e575f48afe869d0ecdfdd963e3c14382330ee8564c1951a0d052021594e
+  src/sleep_research/phase3c.py: bec97026609c91a678e9fd7b6df5d1b881a07eef3597f4fb20899b8c884d6cbd
+  src/sleep_research/phase3c_analysis.py: 4a4de93f8abc225163404e2bed25256af858bae47aa6d1c04ccb92ff82ba6dce
+  src/sleep_research/phase3d.py: 447d4cac09ddbd1497ac50a0cbf96c6d07fff3da952a887425453770e4a9edee
+  src/sleep_research/phase3d_analysis.py: 11b17829c23260f7955f83c80c25de3f0b2b49781fd74c982c49a5bf0fbd1f7b
+  src/sleep_research/phase4_analysis.py: 0536b5d50e61ab0a3732b43a0aa8ebac2b56ac89803cdd516ade9611ef9b43e6
+  src/sleep_research/phase4_campaign.py: 7520f755440f83905d6da9c7ec3ae69be75f9715017c5f911584d6d73b4e3fa7
+  src/sleep_research/phase4_data.py: 3de1de79768c58a5f9c038c96bbc4280a75b823ca9907806a5c23df341103afe
+  src/sleep_research/phase4_explanations.py: 6a9b26bae1c81804e1adb433f34243549b4299aa6b53ab475872d52ea55956ba
+  src/sleep_research/phase4_orchestration.py: 0f7bb3571f04c43cbca2582e6533dca30f10f01d794aeb2a02b5a701f10af7dd
+  src/sleep_research/phase4_registry.py: e35b02b884125d96e3821f3d2277264249fd8e046317a49152d38e8308e5f829
+  src/sleep_research/phase4_smoke.py: 96f2a64042f8f7b006a76de8193e277ddb792da8985f7458c88c43f4c43be79e
+  src/sleep_research/phase5.py: a8326d8e4d0ad891bb26ae5a58a8d23f2d3044c76927abedb2747b2d6bffea3f
+  src/sleep_research/phase5_analysis.py: 50bbb64aadb59e99798026d4e4f4b9c2ca9ebb88de8f96912545de10bf9759f3
+  src/sleep_research/phase5_data.py: e04fbb1252fced5785ad83add59b2ea2c7a9df82efc482e48226218611a02e9f
+  src/sleep_research/phase5_evaluation.py: 2a0e672e623881692650faeae39fc388bab399a68851f66a8b3b25794cd7a1ed
+  src/sleep_research/phase5_publication.py: e1f9cc24741f0144dee10669383705999d78f1e04a26f569a88025b9401ffddb
+  src/sleep_research/phase5_registry.py: 09c50c3f2d0da7f688d35070b068c6ea6ddbfcc51f0865d1abc7b6262aff74e1
+  src/sleep_research/phase5_smoke.py: e5dcbd681f854a858389d9dd00cf26b489f8e96958e55c8926c84704bf739fb1
+  src/sleep_research/phase5_statistics.py: d9de79d88236d948d78f4885a5bda4baccc0757163153010386b14f91ad790dc
+  src/sleep_research/phase5_training.py: 638386986c3e3caa30dff27bb4c813e888de8ab2cdfd0f92381307c3e20eeb19
+  src/sleep_research/quality_review.py: 804dbbdc582b91d8a3e9c6da0ff26b141efd4ecc5d36c6669d37ece8483c6745
+  src/sleep_research/real_data.py: 25fc9aa8103f1ae2acabac50379b9671aefa6a9afb06bd03632bbc119cf50840
+  src/sleep_research/repeated_seeds.py: ff7088a6ce6856669cb4a91ac245ef1fa4d5061289ce259f1b1afe7b3be40b45
+  src/sleep_research/representations.py: de3cb86cb9d01535fd9b6da62973d8f9bc8108ba5c93a77fcd303d9c0d3248c3
+  src/sleep_research/synthetic.py: 9ad169c58c6ab08181f20b8290625bb2fddf8faaee7e167368d374d35aaaf2b5
+  src/sleep_research/trainer.py: f9f5340406d00980cb51eb3f873aecb6a9de70205a003abaee4421fb092b9549
+  scripts/create_notebook.py: 5905b060adb0f7d5f71c2bd76e15a5c18629d3a33f7c2f385e6d5d37604db864
+  scripts/create_phase2_5_notebook.py: 5af579234b62e4580b8aa5c532c46ffd66b0c7574dcff8d67c2df89f807f1e3d
+  scripts/create_phase2_notebook.py: 141307e8015417afef8d13c2331924927576c0372739155c0a1087943d560dc7
+  scripts/create_phase3_notebook.py: 59d6cce628aa93a3710657f547190f044275c3141b77439fa73420425893c91c
+  scripts/create_phase3b_notebook.py: 2178a3d139adfdbf12b857f944fc5b29afe9b16cec0fb659c61ce5bb4ced8467
+  scripts/create_phase3cd_notebooks.py: 28fd7fbdb58e150c757d2a2b6efc78c7b1df58c59ca9218814ff34aa64ed9c62
+  scripts/create_phase4_notebook.py: f1cd794954c836796e4d1d70728aa2c7a267d4616ebe12754b50558b7e8a00dc
+  scripts/create_phase5_notebook.py: e3e71c54bc4f3211bd2e5426a4f987cf3d351353754ec49ace96fbaaee132502
+  scripts/finalize_phase3_artifacts.py: 831ddbd31a74e83bd5f8c9ac141ecb173e0d5715c9d3a9adf91b19e9e9243c11
+  scripts/finalize_phase3b.py: 2217a8235845ec040d9ae50560d6b81c56eeb8e171d458b497ac1d213d3fd258
+  scripts/finalize_phase3c.py: 546c369d8c2bc907b043452c3faf069eb18d9d5c98cc7b811fbcb74e091a9202
+  scripts/finalize_phase5_preparation.py: 6b7c6c03072050e08920ef426657617b440b2ed7f826bee632991cac05747fba
+  scripts/render_phase2_5_reports.py: 7bd2f74536320fb76299373c7e07f8bb56c14ed7340963bea31aded88d0b30c4
+  scripts/render_phase2_report.py: a5c2ba01539d2947af89bb30bb95e0e09d995f97c6fb5dcb0697014037649649
+  scripts/render_phase3_reports.py: cb96810712d311d084beaf1365fe80ce9b0a16c046e66ded4b01eb8254040eeb
+  scripts/render_report.py: 4466009db591a18af96e600d35a6d416d255560f23f3539b9ab8c7c3e85fd242
+  scripts/review_artifact_quality.py: e5a6c5311b9b52aff8ec66f1adede05affbd3bd2ca4e96c18f1fba8cd5d0d3b6
+  scripts/run_phase2.py: 689dee3d8ab9a3213e9bd38fb2300c2077840482b3f7f44e60a94731c3c8a78e
+  scripts/run_phase2_5_tests.py: a83c73cdc905726d0b950a2b3edba5bf7dd749aac84f483d062b2fb3112192a7
+  scripts/run_phase2_tests.py: 20744d8860583de205f7b987d153ee9471b8d785011dc575a9e3f5d9e09aae20
+  scripts/run_phase3_tests.py: 860747ffc29b28cc4d8296fd0650a22a37bd63148fe393437094ba7539bd2dc5
+  scripts/run_phase3b_tests.py: 2201ea0bbd4de25de44bc9ab00105f2a3ec27612e86ea577865c4059a2564653
+  scripts/run_phase3c_tests.py: b57d50ee2d249a5a3d92c8b4d225eef8980442a2a84270dbddf0a63f10eeb545
+  scripts/run_phase3d_tests.py: eac3f28fca48affb4606da8e838e9199fcbb2294a7d2bbf582d0a37cc3882c8d
+  scripts/run_phase4_tests.py: 69cd0f8155b1d416963ca8c7202afdd816e30b824032082848b2907e5ef6d56c
+  scripts/run_phase5_tests.py: c1411909ae8e2e7dbfe34b1b231b294a6dfd27bb388c97090f796f1225e5faf2
+  scripts/run_tests.py: 18163c2345345b202988242d903e0797ceb3f252455144df8144687f64a89196
+  scripts/validate_phase1.py: bb08be56320fb94a95981fe3dc086e121d87f368ead377fa6ad0e3f01bf8f7d7
+  scripts/validate_phase2_5_notebook.py: eef8872cc2679a464e485016a743b00a71141e699e7ef02e4b452d1ac53de4aa
+  scripts/validate_phase2_notebook.py: 23c60eaa1235d1d962287efddcc680ad0cbdbb7034f8671ae48c012ade4a2282
+  scripts/validate_phase3_notebook.py: e1cce4c37214b159a2d1b8be7b6baf4008f0019b842b2d9fa63c134cc75e3640
+  scripts/validate_phase3_results.py: 49ecc191b1dfeaec68c29ae00e07ec2202f477743efa55c824daf7613f870b89
+  scripts/validate_phase3b_notebook.py: 08e49d58f2e775ec50b557899e5a628db6cbb0ab0057f31eed283e7b91526236
+  scripts/validate_phase3c.py: 596312d14c3120c0409888628df401a1244e3eb5e34c6ae7d64116113183d055
+  scripts/validate_phase3cd_notebooks.py: 8da4868e389bf06d4d126e57c5db85a8f3259288944327dfe634d908d702e045
+  scripts/validate_phase3d_completion.py: 848dcee6864b2edd7f7b8347313a79b87d971fc34ed1a1ae6db29df12994a22b
+  scripts/validate_phase4_notebook.py: 23b772fdffb646546ca7da17a7649f8371c713fc589946dbb4d1f2a02d17d194
+  scripts/validate_phase4_preparation.py: ec217c5cf5c2ff02bdc44fd1ef553268fcb0d115cee519512a26afd00969e4cb
+  scripts/validate_phase5_notebook.py: a49ca57a40a80153a52dab3ed684ffb90df776aa880d57016446f4bfaf16d4ad
+  scripts/verify_phase3_preservation.py: 11ed19027843bf81fd411bdadb23dfe9e1c9147462cad741f578ca1bee12603b
+  scripts/verify_phase3b_preservation.py: 447b2600d58c7fc9353c02e45afaca31ce5d588a92602ca1bc9e6d4bb9945553
+  tests/test_phase1.py: 46d21031bdeca4cca98805ed11e9ac68249f0fd21c39cb30bb307d18e2e52c83
+  tests/test_phase2.py: ab93bb7c36f1b20da755dda503cbd5e3fdc4979fe5dd7f88f8b89543c08f5e00
+  tests/test_phase2_5.py: 077a27fe1672165c104f5688e164cf1865e9e6ece00d94b4c51f19855ef4d407
+  tests/test_phase2_full.py: cdfc88dae1dc7cdb560f43bcb54e544a8753ca3738f87cd52440180a001dea5c
+  tests/test_phase2_pilot.py: 341a38131dd6fce38f29ef764fbdd9508ae02aa01a3d2a0fc50d7e0cc5eb4e00
+  tests/test_phase3.py: f585112e401a2420c7b51c9b2b486b0409c04d2e359791e81c79fb139d6ef8ec
+  tests/test_phase3b.py: 9a18d5da74d898a343346f2e5772c8c60a8ca24bb8ca3cefa61eb365572714c1
+  tests/test_phase3c.py: a0634bce6b336ccb6aeb5954d08696862a4775003b082c4b0c92c09c76845cb3
+  tests/test_phase3d.py: 3b3048242e02cf7b64f77e2c7f6804968e446c54871596d7c77b8287523aec3a
+  tests/test_phase4.py: 32f9f9343c15bb9738692e2bdb90d22941015ce4c74eb91c32d683c41c8c22a3
+  tests/test_phase5.py: b22213b9c64236296388b2efc892cff1e85eb25150184b4d76a2c53f8b831342
+  tests/test_phase5_pipeline.py: 34f33be72994cda6237839ddd9930afd1cdcec1a7252d261b0212b63187e716e
+software:
+  python: 3.11.17 (main, Oct  6 2026, 23:54:59) [Clang 21.1.8 ]
+  python_executable: ${PYTHON}
+  platform: macOS-27.0.1-arm64-arm-64bit
+  torch: 2.14.1
+  numpy: 2.4.6
+  scipy: 1.17.1
+  pandas: 3.0.6
+  matplotlib: 3.11.2
+  scikit-learn: null
+  umap-learn: null
+selection: Completed validation only; no test selection, no ensembles or threshold/calibration
+  fitting; argmax five logits
+primary_groups:
+  M1:
+  - M1
+  M5:
+  - m5_ce_s42
+  - m5_ce_s43
+  - m5_ce_s44
+  M7:
+  - m7_ce_s42
+  - m7_ce_s43
+  - m7_ce_s44
+primary_comparisons:
+- - M5
+  - M1
+- - M7
+  - M1
+- - M7
+  - M5
+secondary_comparisons:
+- - M4
+  - M1
+- - m5_wce_s42
+  - m5_ce_s42
+m8_status: exploratory; no final test predictions; proposed further validation ablations
+  deferred, not a primary-model prerequisite
+inference:
+  device: mps
+  batch_size: 16
+  chunk_epochs: 2048
+  num_workers: 0
+  max_open_recordings: 2
+  penultimate_width: 64
+  centered_window: 5
+  context: Original Protocol A contiguous indices only; stop at gaps; same subject/recording/night/split;
+    masks and zero padding; no label inputs
+  no_context_models:
+  - M1
+  - M4
+  rule: One prediction per central target, in canonical order; include all quality
+    flags
+statistics:
+  seed: 20261016
+  resamples: 10000
+  confidence: 0.95
+  primary_simultaneous_confidence: 0.9833333333333333
+  procedure: 'Paired cluster bootstrap: sample 12 subjects with replacement; keep
+    all epochs and nights; same draws for all models and seeds; pool weighted subject
+    confusion counts; average metrics across fixed seeds (no ensemble)'
+  intervals:
+  - accuracy
+  - macro_f1
+  - n1_f1
+  - n3_f1
+  - balanced_accuracy
+  - cohen_kappa
+  missing_class: Five-class macro-F1 always includes five classes with zero for undefined
+    F1; subject balanced accuracy averages present true classes; undefined specificity/AUC/AP/kappa
+    is null; report class support
+  variability: Seed sample SD ddof=1; null for single seed. Subject bootstrap conditional
+    on fitted seeds; do not mix seed SD with subject CI; no epoch-IID tests or significance
+    from point estimates
+analysis:
+  calibration_bins: 10
+  tsne_max_samples: 500
+  tsne_perplexity: 30
+  tsne_iterations: 500
+  seed: 42
+  optional_umap: false
+  explanations: Reuse checkpoint-linked validation explanations; no outcome-selected
+    test explanations or retraining
+  representation: Per-model PCA and uniform seeded t-SNE; centroid scatter ratio,
+    descriptive; geometries are not comparable coordinate systems
+additional_training: None required for the predefined primary comparison. M8 confirmation
+  is deferred and blocked once this plan is frozen.
+training_called: false
+frozen_test_evaluated: false
+plan_id: phase5-39f5f570696c

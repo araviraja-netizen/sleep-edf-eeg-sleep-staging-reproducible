@@ -1,0 +1,69 @@
+{
+  "release_approved": false,
+  "checkpoints": [
+    {
+      "key": "M1",
+      "sha256": "36c092ac719ac2536687eac1858df597540cfeed9003e1d9b7c4df71c6c66e70",
+      "parameters": 40501,
+      "historical_resume_checkpoint_bytes": 540332,
+      "float32_parameters_bytes": 162004
+    },
+    {
+      "key": "m5_ce_s42",
+      "sha256": "884190a9a3e6a9ce430292f4f633506fc867040c39b05bb119790ff09ac1d4b3",
+      "parameters": 65717,
+      "historical_resume_checkpoint_bytes": 857139,
+      "float32_parameters_bytes": 262868
+    },
+    {
+      "key": "m5_ce_s43",
+      "sha256": "f0a52c3b04dd59a33849520628db2395c6ed411c8d80d3fc9b98e4b70e08ce16",
+      "parameters": 65717,
+      "historical_resume_checkpoint_bytes": 857395,
+      "float32_parameters_bytes": 262868
+    },
+    {
+      "key": "m5_ce_s44",
+      "sha256": "cd939eac8e261f2cf2472818f6f7cb4973e882d51bf0c936342bbd75c310f0c7",
+      "parameters": 65717,
+      "historical_resume_checkpoint_bytes": 857459,
+      "float32_parameters_bytes": 262868
+    },
+    {
+      "key": "m7_ce_s42",
+      "sha256": "122f803cfc803505e148a062937ef01e3e7df9730c64cb1a9a87ad0f05eb1cea",
+      "parameters": 107893,
+      "historical_resume_checkpoint_bytes": 1382699,
+      "float32_parameters_bytes": 431572
+    },
+    {
+      "key": "m7_ce_s43",
+      "sha256": "55a706d011c92b92bdc6e87788fceb6bff151d7a438edb5bf33c27f2ed8b9c85",
+      "parameters": 107893,
+      "historical_resume_checkpoint_bytes": 1383275,
+      "float32_parameters_bytes": 431572
+    },
+    {
+      "key": "m7_ce_s44",
+      "sha256": "70466b68c439b928aae74de7bcebaae4f506ced06ba01ce7320020a5c7a1a187",
+      "parameters": 107893,
+      "historical_resume_checkpoint_bytes": 1383019,
+      "float32_parameters_bytes": 431572
+    },
+    {
+      "key": "M4",
+      "sha256": "b3a0f03fe9b96ebd6dce09c42f8bfdd33fa762b5c02b0314bd6423cbbc8a2d87",
+      "parameters": 40501,
+      "historical_resume_checkpoint_bytes": 542313,
+      "float32_parameters_bytes": 162004
+    },
+    {
+      "key": "m5_wce_s42",
+      "sha256": "e36abfacdb028086679150d4b208fb22ec60314e1a2280705b2031876ae5fa3c",
+      "parameters": 65717,
+      "historical_resume_checkpoint_bytes": 857459,
+      "float32_parameters_bytes": 262868
+    }
+  ],
+  "policy": "No checkpoint bytes included. Original nine identities are in frozen_evaluation_projection.json; selected inference-only weights require separate rights/privacy approval and a transformation manifest."
+}

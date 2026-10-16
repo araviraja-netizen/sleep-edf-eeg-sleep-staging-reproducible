@@ -1,0 +1,43 @@
+version: phase2-5-synthetic-v1
+synthetic: true
+family: cnn
+device: cpu
+seed: 42
+max_epochs: 4
+batch_size: 16
+num_workers: 0
+gradient_clip_norm: 5.0
+architecture:
+  name: SyntheticTinyCNN
+  channels: 4
+  embedding_dimension: 16
+  dropout: 0.2
+  classes: 5
+optimizer:
+  name: Adam
+  learning_rate: 0.003
+  weight_decay: 0.0
+scheduler:
+  name: StepLR
+  step_size: 1
+  gamma: 0.8
+early_stopping:
+  patience: 20
+  min_delta: 0.0
+synthetic_dataset:
+  train_samples: 80
+  validation_samples: 40
+  signal_samples: 128
+analysis:
+  penultimate_layer: embedding
+  intermediate_layers: []
+  max_feature_dimension: 512
+  tsne_max_samples: 500
+  tsne_perplexity: 15
+  tsne_iterations: 400
+  seed: 42
+  umap: false
+explanations:
+  max_samples: 4
+  conv_layer: features.0
+  attention_layer: null

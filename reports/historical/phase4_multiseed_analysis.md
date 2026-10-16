@@ -1,0 +1,9 @@
+> Historical measured report, curated export copy. Statements about unstarted later phases are time-specific history. Machine paths and links are adapted; excluded detailed assets are not bundled. Use the portable commands in docs/EXPERIMENTS.md rather than these historical local-archive commands.
+
+# Phase4 three-seed validation
+
+configuration        seeds  accuracy_mean  accuracy_sample_sd  accuracy_min  accuracy_max  macro_f1_mean  macro_f1_sample_sd  macro_f1_min  macro_f1_max  balanced_accuracy_mean  balanced_accuracy_sample_sd  balanced_accuracy_min  balanced_accuracy_max  cohen_kappa_mean  cohen_kappa_sample_sd  cohen_kappa_min  cohen_kappa_max  n1_f1_mean  n1_f1_sample_sd  n1_f1_min  n1_f1_max  n3_f1_mean  n3_f1_sample_sd  n3_f1_min  n3_f1_max
+        m5_ce [42, 43, 44]       0.817551            0.006022      0.810613      0.821417       0.742346            0.001745      0.740758      0.744214                0.749094                     0.010605               0.739933               0.760712          0.743520               0.006987         0.735625         0.748909    0.470314         0.002837   0.467091   0.472433    0.700490         0.003782   0.696373   0.703810
+        m7_ce [42, 43, 44]       0.820943            0.002023      0.819401      0.823234       0.745397            0.004025      0.741260      0.749300                0.744394                     0.009606               0.737979               0.755438          0.747194               0.003315         0.745101         0.751017    0.467989         0.024523   0.452338   0.496251    0.704103         0.015403   0.689093   0.719871
+
+Shortlist selected on seed42 validation; sample SD(ddof1) describes seed variability, not an unbiased test estimate or confidence interval. Repeated runs do not include retraining M1/M4.

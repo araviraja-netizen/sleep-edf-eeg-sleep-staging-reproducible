@@ -1,0 +1,27 @@
+{
+  "version": "sc-subject-split-v1",
+  "seed": 42,
+  "subject_counts": {
+    "train": 54,
+    "validation": 12,
+    "test": 12
+  },
+  "subject_manifest_sha256": "54281aa1e316bde7b2d6373ee110ffc862855178b1a3fd1a5c95a31c7b39818a",
+  "recording_manifest_sha256": "e2fd97b0447ddd372f9cde37fb8b212dc0b28c88f3704ddb7914c6ce8db77623",
+  "test_subjects": [
+    "SC408",
+    "SC412",
+    "SC413",
+    "SC414",
+    "SC419",
+    "SC435",
+    "SC436",
+    "SC448",
+    "SC454",
+    "SC465",
+    "SC466",
+    "SC467"
+  ],
+  "created_at": "2026-10-14T16:32:15.868146+05:30",
+  "policy": "Frozen for all future models; no test-performance optimization"
+}

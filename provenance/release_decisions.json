@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-16T15:24:36.293091+05:30",
+  "source": "Explicit author replies during Phase 7 finalization",
+  "author_name": "Ravi Raja Akurathi",
+  "given_names": "Ravi Raja",
+  "family_name": "Akurathi",
+  "copyright_holder": "Ravi Raja Akurathi",
+  "copyright_year": 2026,
+  "original_code_ownership_and_contributor_authorization_confirmed": true,
+  "authors_and_citation_complete": true,
+  "code_license_approved": true,
+  "code_license_scope": "Authorized original project code only; excludes PhysioNet data, third-party software and non-code scientific content",
+  "subject_confusion_counts_release_approved": true,
+  "frozen_split_identifiers_release_approved": true,
+  "derived_evidence_and_split_release_approved": true,
+  "publication_inventory_approved": false,
+  "initial_commit_authorized": false,
+  "public_remote_authorized": false,
+  "push_authorized": false,
+  "public_url": null,
+  "note": "Content-category approvals do not approve an as-yet-unreviewed final inventory or authorize publication."
+}

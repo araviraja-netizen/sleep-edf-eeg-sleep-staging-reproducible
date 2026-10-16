@@ -1,0 +1,7 @@
+# Publication abstract
+
+## A Reproducible Subject-Independent Comparison of Compact CNN, CNN–BiLSTM and CNN–Transformer Models for Single-Channel Sleep Staging
+
+{{include:abstract_body.md}}
+
+**Keywords:** automatic sleep staging; Sleep-EDF Expanded; single-channel EEG; temporal context; subject-independent evaluation; reproducibility; cluster bootstrap.

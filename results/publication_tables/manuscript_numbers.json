@@ -1,0 +1,776 @@
+{
+  "bootstrap_draws": {
+    "value": 10000,
+    "formatted": "10000",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": "d"
+  },
+  "test_epochs": {
+    "value": 31156,
+    "formatted": "31,156",
+    "source": "results/protocol_a_index.csv",
+    "format": ",d"
+  },
+  "test_subjects": {
+    "value": 12,
+    "formatted": "12",
+    "source": "results/subject_splits.csv",
+    "format": "d"
+  },
+  "test_recordings": {
+    "value": 22,
+    "formatted": "22",
+    "source": "results/protocol_a_index.csv",
+    "format": "d"
+  },
+  "selected_checkpoints": {
+    "value": 9,
+    "formatted": "9",
+    "source": "results/phase5_evaluation_plan.json",
+    "format": "d"
+  },
+  "protocol_A_epochs": {
+    "value": 195469,
+    "formatted": "195,469",
+    "source": "results/protocol_a_index.csv",
+    "format": ",d"
+  },
+  "full_epochs": {
+    "value": 414961,
+    "formatted": "414,961",
+    "source": "results/stage_distribution_comparison.csv",
+    "format": ",d"
+  },
+  "wake_removed": {
+    "value": 219492,
+    "formatted": "219,492",
+    "source": "results/stage_distribution_comparison.csv",
+    "format": ",d"
+  },
+  "wake_full_pct": {
+    "value": 68.78550032412684,
+    "formatted": "68.79",
+    "source": "results/stage_distribution_comparison.csv",
+    "format": ".2f"
+  },
+  "wake_A_pct": {
+    "value": 33.73476101069735,
+    "formatted": "33.73",
+    "source": "results/stage_distribution_comparison.csv",
+    "format": ".2f"
+  },
+  "SC_recordings": {
+    "value": 153,
+    "formatted": "153",
+    "source": "results/dataset_inventory.csv",
+    "format": "d"
+  },
+  "SC_subjects": {
+    "value": 78,
+    "formatted": "78",
+    "source": "results/dataset_inventory.csv",
+    "format": "d"
+  },
+  "ST_recordings": {
+    "value": 44,
+    "formatted": "44",
+    "source": "results/dataset_inventory.csv",
+    "format": "d"
+  },
+  "ST_subjects": {
+    "value": 22,
+    "formatted": "22",
+    "source": "results/dataset_inventory.csv",
+    "format": "d"
+  },
+  "SC_movement_epochs": {
+    "value": 128,
+    "formatted": "128",
+    "source": "results/dataset_inventory.csv",
+    "format": ",d"
+  },
+  "SC_unknown_epochs": {
+    "value": 1335,
+    "formatted": "1,335",
+    "source": "results/dataset_inventory.csv",
+    "format": ",d"
+  },
+  "SC_missing_epochs": {
+    "value": 0,
+    "formatted": "0",
+    "source": "results/dataset_inventory.csv",
+    "format": ",d"
+  },
+  "SC_overlap_epochs": {
+    "value": 0,
+    "formatted": "0",
+    "source": "results/dataset_inventory.csv",
+    "format": ",d"
+  },
+  "SC_invalid_timing_epochs": {
+    "value": 0,
+    "formatted": "0",
+    "source": "results/dataset_inventory.csv",
+    "format": ",d"
+  },
+  "train_epochs": {
+    "value": 134047,
+    "formatted": "134,047",
+    "source": "results/protocol_a_index.csv",
+    "format": ",d"
+  },
+  "train_subjects": {
+    "value": 54,
+    "formatted": "54",
+    "source": "results/subject_splits.csv",
+    "format": "d"
+  },
+  "validation_epochs": {
+    "value": 30266,
+    "formatted": "30,266",
+    "source": "results/protocol_a_index.csv",
+    "format": ",d"
+  },
+  "validation_subjects": {
+    "value": 12,
+    "formatted": "12",
+    "source": "results/subject_splits.csv",
+    "format": "d"
+  },
+  "test_M1_accuracy": {
+    "value": 0.8018359224547439,
+    "formatted": "0.8018",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M1_accuracy_percent": {
+    "value": 80.18359224547439,
+    "formatted": "80.18",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "test_M1_macro_f1": {
+    "value": 0.7197736209663338,
+    "formatted": "0.7198",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "M1_CI_low": {
+    "value": 0.6853303327877229,
+    "formatted": "0.6853",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M1_CI_high": {
+    "value": 0.7476736823213279,
+    "formatted": "0.7477",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "test_M1_n1_f1": {
+    "value": 0.3822714681440443,
+    "formatted": "0.3823",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M1_n3_f1": {
+    "value": 0.7420086615797072,
+    "formatted": "0.7420",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M1_balanced_accuracy": {
+    "value": 0.7088197252903079,
+    "formatted": "0.7088",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M1_cohen_kappa": {
+    "value": 0.7236786825095866,
+    "formatted": "0.7237",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "parameters_M1": {
+    "value": 40501,
+    "formatted": "40,501",
+    "source": "model source and final plan",
+    "format": ",d"
+  },
+  "validation_M1_macro": {
+    "value": 0.693772111951154,
+    "formatted": "0.6938",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "M1_transition_f1": {
+    "value": 0.5820599460204876,
+    "formatted": "0.5821",
+    "source": "results/phase5_transition_metrics.csv fixed-seed mean",
+    "format": ".4f"
+  },
+  "M1_stable_f1": {
+    "value": 0.7288837319901769,
+    "formatted": "0.7289",
+    "source": "results/phase5_transition_metrics.csv fixed-seed mean",
+    "format": ".4f"
+  },
+  "M1_MAC_millions": {
+    "value": 4.638464,
+    "formatted": "4.638",
+    "source": "Analytic counts from saved model source; multiply-accumulate convention excludes nonlinearity/norm/pool/bias",
+    "format": ".3f"
+  },
+  "M1_train_minutes": {
+    "value": 25.459124981949994,
+    "formatted": "25.46",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "M1_inference_seconds": {
+    "value": 10.149720873945624,
+    "formatted": "10.15",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "test_M5_accuracy": {
+    "value": 0.8470920528951084,
+    "formatted": "0.8471",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M5_accuracy_sd": {
+    "value": 0.0011953539895709123,
+    "formatted": "0.0012",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M5_accuracy_percent": {
+    "value": 84.70920528951083,
+    "formatted": "84.71",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "test_M5_macro_f1": {
+    "value": 0.7771240522349415,
+    "formatted": "0.7771",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M5_macro_f1_sd": {
+    "value": 0.006639835331368045,
+    "formatted": "0.0066",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "M5_CI_low": {
+    "value": 0.7471896564941322,
+    "formatted": "0.7472",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M5_CI_high": {
+    "value": 0.8004942775010511,
+    "formatted": "0.8005",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "test_M5_n1_f1": {
+    "value": 0.4610798754225623,
+    "formatted": "0.4611",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M5_n1_f1_sd": {
+    "value": 0.03138064791279665,
+    "formatted": "0.0314",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M5_n3_f1": {
+    "value": 0.7892254505136771,
+    "formatted": "0.7892",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M5_n3_f1_sd": {
+    "value": 0.005164852187866046,
+    "formatted": "0.0052",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M5_balanced_accuracy": {
+    "value": 0.7733366142170116,
+    "formatted": "0.7733",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M5_balanced_accuracy_sd": {
+    "value": 0.007640706297998581,
+    "formatted": "0.0076",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M5_cohen_kappa": {
+    "value": 0.7871833350390435,
+    "formatted": "0.7872",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M5_cohen_kappa_sd": {
+    "value": 0.0017969528415757263,
+    "formatted": "0.0018",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "parameters_M5": {
+    "value": 65717,
+    "formatted": "65,717",
+    "source": "model source and final plan",
+    "format": ",d"
+  },
+  "validation_M5_macro": {
+    "value": 0.7423462098460821,
+    "formatted": "0.7423",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "M5_transition_f1": {
+    "value": 0.5636449941393326,
+    "formatted": "0.5636",
+    "source": "results/phase5_transition_metrics.csv fixed-seed mean",
+    "format": ".4f"
+  },
+  "M5_stable_f1": {
+    "value": 0.8043524904780249,
+    "formatted": "0.8044",
+    "source": "results/phase5_transition_metrics.csv fixed-seed mean",
+    "format": ".4f"
+  },
+  "M5_MAC_millions": {
+    "value": 23.31392,
+    "formatted": "23.314",
+    "source": "Analytic counts from saved model source; multiply-accumulate convention excludes nonlinearity/norm/pool/bias",
+    "format": ".3f"
+  },
+  "M5_train_minutes": {
+    "value": 63.93164647059991,
+    "formatted": "63.93",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "M5_inference_seconds": {
+    "value": 31.038224471315818,
+    "formatted": "31.04",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "test_M7_accuracy": {
+    "value": 0.8447918004022767,
+    "formatted": "0.8448",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M7_accuracy_sd": {
+    "value": 0.005179624203038733,
+    "formatted": "0.0052",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M7_accuracy_percent": {
+    "value": 84.47918004022767,
+    "formatted": "84.48",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "test_M7_macro_f1": {
+    "value": 0.7757967335357469,
+    "formatted": "0.7758",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M7_macro_f1_sd": {
+    "value": 0.011792897341840504,
+    "formatted": "0.0118",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "M7_CI_low": {
+    "value": 0.7459547207749232,
+    "formatted": "0.7460",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_CI_high": {
+    "value": 0.7993984033880794,
+    "formatted": "0.7994",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "test_M7_n1_f1": {
+    "value": 0.47522459125963573,
+    "formatted": "0.4752",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M7_n1_f1_sd": {
+    "value": 0.046832854885763,
+    "formatted": "0.0468",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M7_n3_f1": {
+    "value": 0.7836276252265062,
+    "formatted": "0.7836",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M7_n3_f1_sd": {
+    "value": 0.00585904572582415,
+    "formatted": "0.0059",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M7_balanced_accuracy": {
+    "value": 0.7663750195695727,
+    "formatted": "0.7664",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M7_balanced_accuracy_sd": {
+    "value": 0.012829039452489636,
+    "formatted": "0.0128",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "test_M7_cohen_kappa": {
+    "value": 0.783405940321834,
+    "formatted": "0.7834",
+    "source": "results/phase5_model_comparison.csv grouped fixed seeds",
+    "format": ".4f"
+  },
+  "test_M7_cohen_kappa_sd": {
+    "value": 0.007863542404443317,
+    "formatted": "0.0079",
+    "source": "results/phase5_seed_variability.csv",
+    "format": ".4f"
+  },
+  "parameters_M7": {
+    "value": 107893,
+    "formatted": "107,893",
+    "source": "model source and final plan",
+    "format": ",d"
+  },
+  "validation_M7_macro": {
+    "value": 0.7453968771615148,
+    "formatted": "0.7454",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "M7_transition_f1": {
+    "value": 0.5478594988752321,
+    "formatted": "0.5479",
+    "source": "results/phase5_transition_metrics.csv fixed-seed mean",
+    "format": ".4f"
+  },
+  "M7_stable_f1": {
+    "value": 0.8041662658145065,
+    "formatted": "0.8042",
+    "source": "results/phase5_transition_metrics.csv fixed-seed mean",
+    "format": ".4f"
+  },
+  "M7_MAC_millions": {
+    "value": 23.52512,
+    "formatted": "23.525",
+    "source": "Analytic counts from saved model source; multiply-accumulate convention excludes nonlinearity/norm/pool/bias",
+    "format": ".3f"
+  },
+  "M7_train_minutes": {
+    "value": 68.53323254815,
+    "formatted": "68.53",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "M7_inference_seconds": {
+    "value": 30.318759042362217,
+    "formatted": "30.32",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".2f"
+  },
+  "M5_minus_M1_delta": {
+    "value": 0.05735043126860773,
+    "formatted": "0.0574",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M5_minus_M1_low": {
+    "value": 0.047529699158017295,
+    "formatted": "0.0475",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M5_minus_M1_high": {
+    "value": 0.0692945982911048,
+    "formatted": "0.0693",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M5_minus_M1_sim_low": {
+    "value": 0.04550794418992009,
+    "formatted": "0.0455",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M5_minus_M1_sim_high": {
+    "value": 0.0718186159487277,
+    "formatted": "0.0718",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M1_delta": {
+    "value": 0.05602311256941306,
+    "formatted": "0.0560",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M1_low": {
+    "value": 0.04509120334376406,
+    "formatted": "0.0451",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M1_high": {
+    "value": 0.06848882945512057,
+    "formatted": "0.0685",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M1_sim_low": {
+    "value": 0.04265666575440188,
+    "formatted": "0.0427",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M1_sim_high": {
+    "value": 0.0712339715703863,
+    "formatted": "0.0712",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M5_delta": {
+    "value": -0.0013273186991946684,
+    "formatted": "-0.0013",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M5_low": {
+    "value": -0.007772632412316557,
+    "formatted": "-0.0078",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M5_high": {
+    "value": 0.0038867841155627797,
+    "formatted": "0.0039",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M5_sim_low": {
+    "value": -0.009130148864943986,
+    "formatted": "-0.0091",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M7_minus_M5_sim_high": {
+    "value": 0.004884760219618048,
+    "formatted": "0.0049",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M4_macro_f1": {
+    "value": 0.7379751760980414,
+    "formatted": "0.7380",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "M4_n1_f1": {
+    "value": 0.4675547915771379,
+    "formatted": "0.4676",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "M4_accuracy": {
+    "value": 0.7964757992040057,
+    "formatted": "0.7965",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "m5_wce_s42_macro_f1": {
+    "value": 0.7855135215772917,
+    "formatted": "0.7855",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "m5_wce_s42_n1_f1": {
+    "value": 0.5204380687953108,
+    "formatted": "0.5204",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "m5_wce_s42_accuracy": {
+    "value": 0.8401591988702015,
+    "formatted": "0.8402",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "M4_macro_f1_delta": {
+    "value": 0.018201555131707625,
+    "formatted": "0.0182",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M4_macro_f1_low": {
+    "value": -0.0016372035259268802,
+    "formatted": "-0.0016",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M4_macro_f1_high": {
+    "value": 0.0366062648758853,
+    "formatted": "0.0366",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M4_n1_f1_delta": {
+    "value": 0.08528332343309358,
+    "formatted": "0.0853",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M4_n1_f1_low": {
+    "value": 0.03874850410819637,
+    "formatted": "0.0387",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "M4_n1_f1_high": {
+    "value": 0.11778655385490362,
+    "formatted": "0.1178",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_wce_s42_macro_f1_delta": {
+    "value": 0.007900658082629408,
+    "formatted": "0.0079",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_wce_s42_macro_f1_low": {
+    "value": -0.0036232702129720532,
+    "formatted": "-0.0036",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_wce_s42_macro_f1_high": {
+    "value": 0.020040639301947456,
+    "formatted": "0.0200",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_wce_s42_n1_f1_delta": {
+    "value": 0.047793691895614776,
+    "formatted": "0.0478",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_wce_s42_n1_f1_low": {
+    "value": 0.0022343260257504053,
+    "formatted": "0.0022",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_wce_s42_n1_f1_high": {
+    "value": 0.09339876019206655,
+    "formatted": "0.0934",
+    "source": "results/phase5_subject_bootstrap.json",
+    "format": ".4f"
+  },
+  "m5_ce_s42_N1": {
+    "value": 0.4726443768996961,
+    "formatted": "0.4726",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "m5_ce_s42_F1": {
+    "value": 0.7776128634946623,
+    "formatted": "0.7776",
+    "source": "results/phase5_model_comparison.csv",
+    "format": ".4f"
+  },
+  "transition_epochs": {
+    "value": 3498,
+    "formatted": "3,498",
+    "source": "results/phase5_transition_metrics.csv",
+    "format": ",d"
+  },
+  "stable_epochs": {
+    "value": 27628,
+    "formatted": "27,628",
+    "source": "results/phase5_transition_metrics.csv",
+    "format": ",d"
+  },
+  "excluded_transition_boundary_epochs": {
+    "value": 30,
+    "formatted": "30",
+    "source": "Canonical epochs minus valid transition comparison targets",
+    "format": "d"
+  },
+  "flagged_test": {
+    "value": 328,
+    "formatted": "328",
+    "source": "Saved test export quality flags",
+    "format": "d"
+  },
+  "norm_mean": {
+    "value": 2.4219063337607186e-05,
+    "formatted": "0.00002422",
+    "source": "results/normalization.json",
+    "format": ".8f"
+  },
+  "norm_std": {
+    "value": 17.664351915765064,
+    "formatted": "17.664352",
+    "source": "results/normalization.json",
+    "format": ".6f"
+  },
+  "m8_ce_s42_macro": {
+    "value": 0.7408479420829832,
+    "formatted": "0.7408",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "m8_ablation_control_s42_macro": {
+    "value": 0.7174299591681657,
+    "formatted": "0.7174",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "m8_ablation_no_multiscale_s42_macro": {
+    "value": 0.7045383651057031,
+    "formatted": "0.7045",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "m8_ablation_no_context_s42_macro": {
+    "value": 0.6516339380286686,
+    "formatted": "0.6516",
+    "source": "results/phase4_models_comparison.csv",
+    "format": ".4f"
+  },
+  "N1_test_support": {
+    "value": 3111,
+    "formatted": "3,111",
+    "source": "Saved test labels",
+    "format": ",d"
+  }
+}

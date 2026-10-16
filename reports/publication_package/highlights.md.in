@@ -1,0 +1,9 @@
+# Highlights
+
+- Compact CNN, CNN–BiLSTM and CNN–Transformer models share one frozen subject-independent protocol.
+- All {{selected_checkpoints}} preselected checkpoints retain identical {{test_epochs}} test targets and original identifiers.
+- Three-seed macro-F1 means are {{test_M5_macro_f1}} for CNN–BiLSTM and {{test_M7_macro_f1}} for CNN–Transformer.
+- Paired subject intervals do not establish reliable superiority between the two context models.
+- Saved evidence exposes N1 and transition tradeoffs alongside aggregate performance.
+
+These highlights describe a reproducible comparison of established families, not a new architecture or a state-of-the-art claim. Final wording can be adapted once a journal is chosen; no journal-specific limits are assumed.

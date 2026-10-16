@@ -1,0 +1,11 @@
+dataset_root = "${DATASET_ROOT}"
+python_executable = "${PYTHON}"
+project_root = "${WORKSPACE}"
+initial_channel = "EEG Fpz-Cz"
+future_channel = "EEG Pz-Oz"
+epoch_seconds = 30
+signal_chunk_seconds = 600
+inspection_recordings = ["SC4001E", "SC4002E"]
+training_study = "SC"
+retain_all_wake = true
+verify_checksums = true

@@ -1,0 +1,17 @@
+version: phase2-wake-v1
+primary_protocol: A
+protocols:
+  A:
+    name: wake_trimmed_30_minutes
+    context_epochs_before_sleep: 60
+    context_epochs_after_sleep: 60
+    sleep_labels: [1, 2, 3, 4]
+    boundaries_using: annotation_and_signal_valid_epochs
+    preserve_internal_wake: true
+    no_valid_sleep: flag_and_exclude_from_protocol_a
+    offline_label_based_protocol: true
+  B:
+    name: full_recording
+    retain_all_valid_epochs: true
+same_subject_splits: true
+artificial_class_balancing: false

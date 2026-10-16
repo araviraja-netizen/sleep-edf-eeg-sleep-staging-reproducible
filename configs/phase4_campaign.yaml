@@ -1,0 +1,25 @@
+version: phase4-v1
+protocol: A
+window: 5
+seed: 42
+device: mps
+precision: float32
+batch_size: 16
+resource_fallback_batch: 8
+num_workers: 0
+max_open_recordings: 128
+max_epochs: 25
+early_stopping: {patience: 8, min_delta: 0.0}
+optimizer: {name: AdamW, learning_rate: 0.001, weight_decay: 0.01, betas: [0.9, 0.999], eps: 1.0e-8}
+scheduler: {name: none}
+selection_metric: validation_macro_f1
+models: [M5, M6, M7, M8]
+losses: [cross_entropy, weighted_cross_entropy]
+repeat_seeds: [43, 44]
+shortlist_count: 2
+ranking: [macro_f1_desc, n1_f1_desc, parameters_asc, training_seconds_asc, key_asc]
+ablation_epochs: 3
+ablations: [control, no_multiscale, no_context]
+ablation_loss: cross_entropy
+analysis: {tsne_max_samples: 500, tsne_perplexity: 30, tsne_iterations: 500, seed: 42}
+minimum_free_gib: 8
