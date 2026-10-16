@@ -1,23 +1,23 @@
 {
-  "inventory_sha256": "3ef9636ba30637292daebf5b1d56c1f87b7d967754a24190965289b42a64b452",
+  "inventory_sha256": "f16bca51d08560607e72919608ff4d90bd974757f7624c09310c6ee4ab283986",
   "payload_files": 272,
-  "payload_bytes": 4031307,
+  "payload_bytes": 4036065,
   "files": {
     ".gitignore": {
       "sha256": "733723a897c36741afd8fbc66788d850af49ca0d2c44dd6d0b3c68f62e46406e",
       "bytes": 727
     },
     "CITATION.cff": {
-      "sha256": "635af7b0af2d36561473804baec71e80f0a3164d0971f0368bb18e825bc90a18",
-      "bytes": 673
+      "sha256": "eef24fc88cf32881c43b77a21c337af974dd2db76ba1968686dc911a747f9544",
+      "bytes": 770
     },
     "LICENSE": {
       "sha256": "ef5f0c1ec69ef4303db2ede4f41c4f098c347ff0e0f0ea5a4c69b341e0cd30b4",
       "bytes": 1560
     },
     "README.md": {
-      "sha256": "5e1d2cff1cdecb2e05b4744ab38f38c668f34becdba1518cf22c4492d170c0c3",
-      "bytes": 12028
+      "sha256": "850b7ff17160a43e1e0648947ad4a64d5381d203f48174b615c8fa2b62ecb503",
+      "bytes": 12281
     },
     "configs/cnn1d_baseline.yaml": {
       "sha256": "f7487934028cd4f0db31b212e982c2c16e4f4d9fa58b5f28f3fdc539e3c012fe",
@@ -76,24 +76,24 @@
       "bytes": 10302
     },
     "docs/GITHUB_PUBLICATION.md": {
-      "sha256": "5dd5dff9a78ba42f22253c2116d6b943fe72d1320cfa8bb3460703a306a3466e",
-      "bytes": 5935
+      "sha256": "c813ff6a85df953316157f1544273cb511ebd1066fc015b6100abf996cbc22d3",
+      "bytes": 6498
     },
     "docs/INSTALLATION.md": {
       "sha256": "0f1387226b8734be17b9e384c8028b7fc9b08dd4a2c56bf47fc63f709e39a8b3",
       "bytes": 3091
     },
     "docs/LICENSE_SCOPE.md": {
-      "sha256": "238f11acb03942e48762cc0dbbacdbae4cc154c7822ff164b341993aa28d897e",
-      "bytes": 2872
+      "sha256": "92913ff4819f98f1f4cd4d704acc00c417d158682a76fcc653bb251f460150f2",
+      "bytes": 2927
     },
     "docs/LIMITATIONS.md": {
-      "sha256": "d426d8e14bb3c2772b8803ce9e1ad3f36905afb3ff67e522e5da7371563f6971",
-      "bytes": 3130
+      "sha256": "14dade37116bf1abfaf5b1bbe270e54f9bb5372a2e92de1bc391318b0ac3dab3",
+      "bytes": 3260
     },
     "docs/RELEASE_ARTIFACT_POLICY.md": {
-      "sha256": "628cf68c829ff553b9a98fbd2e084d374df4d2d7213aa5def2ec0efd11c7b702",
-      "bytes": 4894
+      "sha256": "b91a753377e96eb006576e3ec91b764f684a0d6f39b18c1e0608fffd857903b4",
+      "bytes": 5471
     },
     "docs/REPORT_INDEX.md": {
       "sha256": "50547fe81204f103b22621e8d332b25f6bf66c6fd0a061c11301bfb55bf7b498",
@@ -188,8 +188,8 @@
       "bytes": 2451
     },
     "provenance/citation_validation.json": {
-      "sha256": "1106c7c51ff5d9af900aa33e58a79bf22d2a40ddba6e294c28639baf362285be",
-      "bytes": 549
+      "sha256": "629de815caf6de0f49c8b73795570d47d1de86749a87017cb626b4e9313b8d00",
+      "bytes": 690
     },
     "provenance/dependency_licenses.json": {
       "sha256": "a6d4830722fa419049391fd694909c4c96a3e585092e8eb414cedf39ab73f5cc",
@@ -200,8 +200,8 @@
       "bytes": 455
     },
     "provenance/export_lineage.json": {
-      "sha256": "824e0aa2015ade50241892a889943f48c8d7365c96cf18cafb1625f145ec752c",
-      "bytes": 77644
+      "sha256": "e4aca98130f10c9e4401e969d5d2da609f9113a091afc8b1c57b3457b2e1a029",
+      "bytes": 77740
     },
     "provenance/frozen_evaluation_projection.json": {
       "sha256": "51075ac1954df898d2bffce9bbcb1bdf8a08866477640b42106a2f7151c6a766",
@@ -216,16 +216,16 @@
       "bytes": 730
     },
     "provenance/release_decisions.json": {
-      "sha256": "d6ab86caab6aaebf8139b91768f003bef3ddc0dbe0340997ec1cb2b613c60c3a",
-      "bytes": 1031
+      "sha256": "d9f3cd04848089262145aedbe04f7396289e649f203460064cfa312252e149b4",
+      "bytes": 1560
     },
     "provenance/resource_evidence.json": {
       "sha256": "e49b84f1d4284182729c45f4c4180065db9eec32cf57a1e5224f8ea7cd0c9acb",
       "bytes": 479
     },
     "provenance/size_summary.json": {
-      "sha256": "79aa112e8d471f0ab74ccb97e7e9e68931d88dec8a875332b3e8f862cc284e65",
-      "bytes": 308
+      "sha256": "2f19b01c952cee2157d512549657bbc2c3631aae67ecf1dcdf47c00c404cc1c1",
+      "bytes": 479
     },
     "provenance/source_to_table.json": {
       "sha256": "653ab4d4b43d0dbaf3cff1076af3c4b91112c826b7731b0883f25f54440ebe36",
@@ -368,8 +368,8 @@
       "bytes": 17410
     },
     "reports/publication_manuscript_revised.md": {
-      "sha256": "d6b9e9946e545e46c505e99a3838cca880af0c6e15e86c7c7f6dc767d4fbc54d",
-      "bytes": 41684
+      "sha256": "49546e1c8b52269daf9b7eeee3db2402c6656623e872179231bcb28dcb19f03c",
+      "bytes": 42099
     },
     "reports/publication_package/README.md": {
       "sha256": "914e392845bf87aa3c365e39caf50cb70a08fdf96c7041a26bcdea30aeed4054",
@@ -440,16 +440,16 @@
       "bytes": 297
     },
     "results/github_publication_approval_report.md": {
-      "sha256": "4ffcc12147c7710531906c2aa4147415984b05811bff8bd859fe23b6cd3d4c53",
-      "bytes": 5956
+      "sha256": "f59626cbadb549e29032a2f8ed05a9e48fce8057812d69d37adf77fb1120450c",
+      "bytes": 6533
     },
     "results/github_publication_audit.md": {
-      "sha256": "a5c39b60041c486b6e6fa15e0fb0307deedf5108a5fb2420d283d71a09331a04",
-      "bytes": 3626
+      "sha256": "8c39e9e8faadcdda833fe4933ee61dd62d11fe2e90699841544ffa1278e558ae",
+      "bytes": 4203
     },
     "results/github_reproducibility_validation.md": {
-      "sha256": "52ad0fc3e63284ae33052e4d3b92d58d80c3e4c545a6a73ef83431b2929a7e51",
-      "bytes": 2073
+      "sha256": "f3961665728f5657a2847a7f7bd88cd077bb3e20c7e618349473c0d3fda1c17d",
+      "bytes": 2650
     },
     "results/publication_figures/01_architectures.pdf": {
       "sha256": "330c5e9ad0cc0b589d8c22b452c0fb39e6febc7c3a944d23ddaba882bbab3ac8",
@@ -1092,5 +1092,8 @@
       "bytes": 5496
     }
   },
-  "self_reference_note": "The four inventory/hash/path-list control files are listed for staging but excluded from their own recursive payload hashes. Review their exact bytes and inventory digest separately."
+  "self_reference_note": "The four inventory/hash/path-list control files are listed for staging but excluded from their own recursive payload hashes. Review their exact bytes and inventory digest separately.",
+  "approved_initial_inventory_sha256": "3ef9636ba30637292daebf5b1d56c1f87b7d967754a24190965289b42a64b452",
+  "initial_release_commit": "9ed9e3baf3b33054b74b5f068727fe503bcbe05b",
+  "metadata_update_authorization": "Explicit author instruction after verified public publication"
 }

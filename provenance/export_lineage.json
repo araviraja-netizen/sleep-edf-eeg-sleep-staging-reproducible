@@ -1312,8 +1312,8 @@
     "source": "reports/publication_manuscript_revised.md",
     "public": "reports/publication_manuscript_revised.md",
     "source_sha256": "543b4446b16bee1ab96b1ebdc7460d2b3ae3130e66716314f77e7dae13f41e8c",
-    "public_sha256": "d6b9e9946e545e46c505e99a3838cca880af0c6e15e86c7c7f6dc767d4fbc54d",
-    "transformation": "curated manuscript copy: paths sanitized and excluded-evidence links replaced with explicit availability notices"
+    "public_sha256": "49546e1c8b52269daf9b7eeee3db2402c6656623e872179231bcb28dcb19f03c",
+    "transformation": "curated manuscript copy: paths sanitized and excluded-evidence links replaced with explicit availability notices; authorized post-publication metadata/Code Availability update, experimental evidence unchanged"
   },
   {
     "source": "reports/reviewer_readiness_report.md",

@@ -13,10 +13,16 @@
   "subject_confusion_counts_release_approved": true,
   "frozen_split_identifiers_release_approved": true,
   "derived_evidence_and_split_release_approved": true,
-  "publication_inventory_approved": false,
-  "initial_commit_authorized": false,
-  "public_remote_authorized": false,
-  "push_authorized": false,
-  "public_url": null,
-  "note": "Content-category approvals do not approve an as-yet-unreviewed final inventory or authorize publication."
+  "publication_inventory_approved": true,
+  "initial_commit_authorized": true,
+  "public_remote_authorized": true,
+  "push_authorized": true,
+  "public_url": "https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible",
+  "note": "The author explicitly approved the exact initial 276-file inventory, public publication under the selected owner and a separately verified metadata-only follow-up. Dataset/third-party scope boundaries are unchanged.",
+  "github_owner": "araviraja-netizen",
+  "visibility": "public",
+  "approved_initial_inventory_sha256": "3ef9636ba30637292daebf5b1d56c1f87b7d967754a24190965289b42a64b452",
+  "initial_release_commit": "9ed9e3baf3b33054b74b5f068727fe503bcbe05b",
+  "publication_verified_at": "2026-10-16T16:10:37.236457+05:30",
+  "metadata_update_authorized": true
 }

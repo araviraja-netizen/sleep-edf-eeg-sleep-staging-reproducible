@@ -1,5 +1,5 @@
 # Genuine author and scoped code license confirmed by the author.
-# Repository URL and release date are omitted until they actually exist.
+# Public repository verified; no release date or archival DOI is invented.
 cff-version: 1.2.0
 message: If you use the project software, please cite it using these metadata. Cite
   Sleep-EDF Expanded and its original studies separately as described in docs/BIBLIOGRAPHY.md.
@@ -12,3 +12,4 @@ license: MIT
 version: 0.2.0
 abstract: Reproducible single-channel EEG sleep-stage classification research implementation
   and saved-outcome verification on PhysioNet Sleep-EDF Expanded.
+repository-code: https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible

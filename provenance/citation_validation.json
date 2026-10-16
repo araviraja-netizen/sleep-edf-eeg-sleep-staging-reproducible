@@ -6,8 +6,10 @@
   "genuine_author": "Ravi Raja Akurathi",
   "copyright_year": 2026,
   "code_license": "MIT",
-  "repository_url_omitted_until_publication": true,
+  "repository_url_omitted_until_publication": false,
   "date_released_omitted_until_release": true,
   "orcid_and_affiliation_not_supplied": true,
-  "validated_at": "2026-10-16T15:24:36.293091+05:30"
+  "validated_at": "2026-10-16T16:10:37.236457+05:30",
+  "repository_code": "https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible",
+  "public_repository_verified": true
 }

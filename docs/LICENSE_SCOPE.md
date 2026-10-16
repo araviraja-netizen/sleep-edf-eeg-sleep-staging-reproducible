@@ -16,4 +16,4 @@ Contains information from [Sleep-EDF Database Expanded](https://physionet.org/co
 
 Cite the dataset (DOI [10.13026/C2X676](https://doi.org/10.13026/C2X676)), Kemp et al. (2000), DOI [10.1109/10.867928](https://doi.org/10.1109/10.867928), and Goldberger et al. (2000), DOI [10.1161/01.CIR.101.23.e215](https://doi.org/10.1161/01.CIR.101.23.e215). A software citation is not a substitute for these sources.
 
-No ORCID, affiliation, contact email, publication date, public URL or archive DOI was supplied or invented. The software version in CITATION.cff matches the pre-existing package version 0.2.0; this does not assert that a Git tag or public release exists.
+No ORCID, affiliation, contact email, release date or archive DOI is invented. The public repository URL was added only after the real GitHub upload was verified. The software version in CITATION.cff matches the pre-existing package version 0.2.0; this does not assert that a Git tag or public release exists.

@@ -1,5 +1,7 @@
 # Publication approval report
 
+> **Publication update (2026-10-16):** Published publicly at [https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible](https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible); initial reviewed commit `9ed9e3baf3b33054b74b5f068727fe503bcbe05b`. The preparation/review text below is retained as dated history. The 276-file initial inventory was explicitly approved and verified on GitHub; current hashes include the authorized publication-metadata update. No additional experimental results or physiological artifacts were released.
+
 Prepared 2026-10-16T15:28:29.337367+05:30. **Ready for final inventory review; publication is not authorized.**
 
 Repository name: **sleep-edf-eeg-sleep-staging-reproducible**. The publication directory is the separate export with this basename, not the private research archive. Its exact machine-local location is recorded in the author's private finalization report, excluded from this release.

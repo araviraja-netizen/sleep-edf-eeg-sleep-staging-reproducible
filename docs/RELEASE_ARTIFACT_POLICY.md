@@ -1,5 +1,7 @@
 # Release boundaries and checkpoint policy
 
+> **Publication update (2026-10-16):** Published publicly at [https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible](https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible); initial reviewed commit `9ed9e3baf3b33054b74b5f068727fe503bcbe05b`. The preparation/review text below is retained as dated history. The 276-file initial inventory was explicitly approved and verified on GitHub; current hashes include the authorized publication-metadata update. No additional experimental results or physiological artifacts were released.
+
 The author approved MIT for authorized original code, pseudonymized subject-level confusion counts, and exact frozen split identifiers. The final exact inventory still requires review before staging/commit; no public remote, upload or journal submission is authorized. See [recorded decisions](../provenance/release_decisions.json) and [license scope](LICENSE_SCOPE.md).
 
 | Proposed content | Present in publication directory? | Decision before release |
