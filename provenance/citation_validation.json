@@ -8,8 +8,11 @@
   "code_license": "MIT",
   "repository_url_omitted_until_publication": false,
   "date_released_omitted_until_release": true,
-  "orcid_and_affiliation_not_supplied": true,
-  "validated_at": "2026-10-16T16:10:37.236457+05:30",
+  "validated_at": "2026-10-16T16:23:11.987642+05:30",
   "repository_code": "https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible",
-  "public_repository_verified": true
+  "public_repository_verified": true,
+  "orcid": "https://orcid.org/0000-0001-9543-0860",
+  "orcid_supplied_by_author": true,
+  "orcid_checksum_valid": true,
+  "affiliation_not_supplied": true
 }

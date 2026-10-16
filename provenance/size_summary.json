@@ -3,7 +3,7 @@
   "release_status": "published",
   "github_url": "https://github.com/araviraja-netizen/sleep-edf-eeg-sleep-staging-reproducible",
   "proposed_files": 276,
-  "proposed_bytes": 4206552,
+  "proposed_bytes": 4207025,
   "largest_file": {
     "path": "results/publication_figures/05_confusion_matrices.png",
     "bytes": 465833

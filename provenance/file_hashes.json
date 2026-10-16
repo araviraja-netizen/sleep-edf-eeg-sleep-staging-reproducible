@@ -1,23 +1,23 @@
 {
-  "inventory_sha256": "f16bca51d08560607e72919608ff4d90bd974757f7624c09310c6ee4ab283986",
+  "inventory_sha256": "b8d3f968caac1dd444440e79faf43ce2f5cba3b999dd000418d2b390247ac0dd",
   "payload_files": 272,
-  "payload_bytes": 4036065,
+  "payload_bytes": 4036534,
   "files": {
     ".gitignore": {
       "sha256": "733723a897c36741afd8fbc66788d850af49ca0d2c44dd6d0b3c68f62e46406e",
       "bytes": 727
     },
     "CITATION.cff": {
-      "sha256": "eef24fc88cf32881c43b77a21c337af974dd2db76ba1968686dc911a747f9544",
-      "bytes": 770
+      "sha256": "57b4680eb3c77f1079508cb400170af6f5394773a0f7db6243350bb36e44c25e",
+      "bytes": 824
     },
     "LICENSE": {
       "sha256": "ef5f0c1ec69ef4303db2ede4f41c4f098c347ff0e0f0ea5a4c69b341e0cd30b4",
       "bytes": 1560
     },
     "README.md": {
-      "sha256": "850b7ff17160a43e1e0648947ad4a64d5381d203f48174b615c8fa2b62ecb503",
-      "bytes": 12281
+      "sha256": "96541f9e5685076d189826d3328f38c3ec2573f4eac64f0c10dce7983bccac09",
+      "bytes": 12320
     },
     "configs/cnn1d_baseline.yaml": {
       "sha256": "f7487934028cd4f0db31b212e982c2c16e4f4d9fa58b5f28f3fdc539e3c012fe",
@@ -76,8 +76,8 @@
       "bytes": 10302
     },
     "docs/GITHUB_PUBLICATION.md": {
-      "sha256": "c813ff6a85df953316157f1544273cb511ebd1066fc015b6100abf996cbc22d3",
-      "bytes": 6498
+      "sha256": "0457fea1662da3158bc934e97a0e71e4e4f1cc67b0878eafd784c486e5fc6197",
+      "bytes": 6582
     },
     "docs/INSTALLATION.md": {
       "sha256": "0f1387226b8734be17b9e384c8028b7fc9b08dd4a2c56bf47fc63f709e39a8b3",
@@ -188,8 +188,8 @@
       "bytes": 2451
     },
     "provenance/citation_validation.json": {
-      "sha256": "629de815caf6de0f49c8b73795570d47d1de86749a87017cb626b4e9313b8d00",
-      "bytes": 690
+      "sha256": "7fa99ea2ca6860e62e51e7ec1fd4086d516f342aee774dd5db7af5393e803dca",
+      "bytes": 800
     },
     "provenance/dependency_licenses.json": {
       "sha256": "a6d4830722fa419049391fd694909c4c96a3e585092e8eb414cedf39ab73f5cc",
@@ -216,15 +216,15 @@
       "bytes": 730
     },
     "provenance/release_decisions.json": {
-      "sha256": "d9f3cd04848089262145aedbe04f7396289e649f203460064cfa312252e149b4",
-      "bytes": 1560
+      "sha256": "25a31ad6af4d06d8742e6a8f2dd26c0eb7987a00e1e7c7fb7fbae602df49435b",
+      "bytes": 1742
     },
     "provenance/resource_evidence.json": {
       "sha256": "e49b84f1d4284182729c45f4c4180065db9eec32cf57a1e5224f8ea7cd0c9acb",
       "bytes": 479
     },
     "provenance/size_summary.json": {
-      "sha256": "2f19b01c952cee2157d512549657bbc2c3631aae67ecf1dcdf47c00c404cc1c1",
+      "sha256": "11901444f86535b62a6e6de539746bfbff2cbfbef9fef4226547910424e1e5d3",
       "bytes": 479
     },
     "provenance/source_to_table.json": {
@@ -1095,5 +1095,5 @@
   "self_reference_note": "The four inventory/hash/path-list control files are listed for staging but excluded from their own recursive payload hashes. Review their exact bytes and inventory digest separately.",
   "approved_initial_inventory_sha256": "3ef9636ba30637292daebf5b1d56c1f87b7d967754a24190965289b42a64b452",
   "initial_release_commit": "9ed9e3baf3b33054b74b5f068727fe503bcbe05b",
-  "metadata_update_authorization": "Explicit author instruction after verified public publication"
+  "metadata_update_authorization": "Explicit author requests for published metadata and ORCID updates"
 }

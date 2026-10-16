@@ -24,5 +24,8 @@
   "approved_initial_inventory_sha256": "3ef9636ba30637292daebf5b1d56c1f87b7d967754a24190965289b42a64b452",
   "initial_release_commit": "9ed9e3baf3b33054b74b5f068727fe503bcbe05b",
   "publication_verified_at": "2026-10-16T16:10:37.236457+05:30",
-  "metadata_update_authorized": true
+  "metadata_update_authorized": true,
+  "author_orcid": "https://orcid.org/0000-0001-9543-0860",
+  "orcid_supplied_and_public_update_authorized_by_author": true,
+  "orcid_updated_at": "2026-10-16T16:23:11.987642+05:30"
 }

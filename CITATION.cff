@@ -1,4 +1,4 @@
-# Genuine author and scoped code license confirmed by the author.
+# Genuine author, ORCID and scoped code license confirmed by the author.
 # Public repository verified; no release date or archival DOI is invented.
 cff-version: 1.2.0
 message: If you use the project software, please cite it using these metadata. Cite
@@ -8,6 +8,7 @@ type: software
 authors:
 - family-names: Akurathi
   given-names: Ravi Raja
+  orcid: https://orcid.org/0000-0001-9543-0860
 license: MIT
 version: 0.2.0
 abstract: Reproducible single-channel EEG sleep-stage classification research implementation
